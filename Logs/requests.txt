@@ -1,4 +1,2 @@
 
-username; s:5:"kashi";; s:0:"";; i:1508942552;; incomplete;
-username; s:8:"specialK";; s:4:"Test";; i:1508942629;; incomplete;
 username; bar; Test23; 1508942726; incomplete;
