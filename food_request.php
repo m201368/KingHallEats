@@ -19,7 +19,7 @@
   <?php
   if (isset($_POST['sFood'])) {
     $file = fopen("Logs/requests.txt", 'a') or die("can't open file");
-    $order = "username; ".serialize($_POST['sFood'])."; ".serialize($_POST['com'])."; ".serialize(time())."; incomplete;\n";
+    $order = "username; ".($_POST['sFood'])."; ".($_POST['com'])."; ".(time())."; incomplete;\n";
     fwrite($file, $order);
     fclose($file);
     print "<b>Thanks for submitting a request!</b>";
