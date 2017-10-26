@@ -1,3 +1,11 @@
+/*
+Description: JavaScript file for functions that work onchange for forms.
+Created by : Ben Birney
+Created on : 23 OCT 2017
+Last Edited: 25 OCT 2017
+*/
+
+//Function generates a form containing specific food for food_request.php. This will change once I format King Hall menus to be read
 function specificRequest() {
   var select = document.getElementById("cat");
   var category = select.options[select.selectedIndex].value;
