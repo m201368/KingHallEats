@@ -1,6 +1,20 @@
 <!Doctype HTML>
+<!--
+Description: PHP file that generates a form for user food requests. PHP writes each request into Logs/requests.txt. The form makes 
+             use of a javascript file to generate a specific food form once the user has picked a category.
+Created by : Ben Birney
+Created on : 23 OCT 2017
+Last Edited: 25 OCT 2017
+-->
 <html>
 
+<?php
+  if(!isset($_SESSION['username'])) {
+    session_start();
+    $_SESSION['username'] = "fillerUsername"; //Sessions will start when the user logs in (this is for the demo)
+  }
+?>
+  
 <head>
   <style type="text/css">
     table, td, th {
@@ -18,7 +32,7 @@
 <body bgcolor=#aaaaa>
   <?php
   if (isset($_POST['sFood'])) {
-    $file = fopen("Logs/requests.txt", 'a') or die("can't open file");
+    $file = fopen("Logs/requests.txt", 'a+') or die("can't open file");
     $order = "username; ".($_POST['sFood'])."; ".($_POST['com'])."; ".(time())."; incomplete;\n";
     fwrite($file, $order);
     fclose($file);
