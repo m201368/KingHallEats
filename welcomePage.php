@@ -51,7 +51,7 @@
       <ul class="nav navbar-nav">
         <li><a href="./food_request.php">Request Food</a></li>
       </ul>
-      <form class="navbar-form navbar-right">
+      <form class="navbar-form navbar-right" method="POST" action="profile.php">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Username" name="user">
           <input type="text" class="form-control" placeholder="Password" name="pass">
