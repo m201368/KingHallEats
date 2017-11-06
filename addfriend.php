@@ -1,4 +1,13 @@
 <?php
+  if(!isset($_SESSION['user'])) {
+    session_start();
+    ?><script type="text/javascript">
+      document.location = "welcomePage.php";
+    </script><?php
+  }
+?>
+
+<?php
   //returns array of all friends of person with inputed name from friends file
   function showyourfriends($name){
     $array;
@@ -18,13 +27,13 @@
   }
 
 
-  if($_POST['name']==''){echo"Let's add some friends! Put your information in the boxes below:";}
+  if($_SESSION['user']==''){echo"Let's add some friends! Login!";}
   else{
     //add name, friend to friends.txt in each new line
     $file = fopen("Logs/friends.txt",'a');
-    $data = $_POST['name'].", ".$_POST['friend']."\n";
+    $data = $_SESSION['user'].", ".$_POST['friend']."\n";
     fwrite($file,$data);
-    if($_POST['user']!=""){echo"Thanks for adding a friend!";}
+    if($_SESSION['user']!=""){echo"Thanks for adding a friend!";}
   }
   // used the lines to make sure functions were working properly
   // $answer=showyourfriends($_POST['name']);
@@ -40,7 +49,7 @@
     function check(){
       var x = document.getElementById("form");
       var go = true;
-      if(x.names.value == ""){go = false;}
+      
       if(x.friend.value == ""){go = false;}
       if(go){return true;}
       else{
@@ -50,7 +59,7 @@
     }
   </script>
   <form action="?" id="form" method="POST" onsubmit="check()">
-    What is your username: <input type="text" name="name"><br><!-- replace later with session variable for username -->
+    
     What is your friend's username? <input type="text" name="friend"><br>
     <input type="submit" name="Add Friend">
   </form>
