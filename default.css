@@ -1,0 +1,11 @@
+body {
+  font-family: 'Cabin', sans-serif;
+}
+
+.table {
+  border: 1px solid #d9d9d9 !important;
+}
+
+.skin-blue .main-header .navbar {
+  background-color: #054a71;
+}
