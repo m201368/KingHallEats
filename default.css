@@ -9,3 +9,7 @@ body {
 .skin-blue .main-header .navbar {
   background-color: #054a71;
 }
+
+h1, h4 {
+  text-align: center;
+}

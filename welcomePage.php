@@ -3,7 +3,7 @@
  +Description: PHP file that welcomes user to King Hall Eats website. Provides links to every page availabe on the website, including login page.
  +Created by : Sarah Barkley
  +Created on : 23 OCT 2017
- +Last Edited: 25 OCT 2017
+ +Last Edited: 06 NOV 2017
  +-->
 <head>
   <meta charset="utf-8">
@@ -18,18 +18,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
-    <style type="text/css">
-    body{
-      margin-left: 10%;
-      margin-right: 10%;
-      margin-top: 10%;
-      margin-bottom: 10%;
-      font-family: 'Josefin Sans', sans-serif;
-    }
-    h1, h4{
-      text-align: center;
-    }
-    </style>
+    <link type="text/css" rel="stylesheet" href="default.css">
 </head>
 <body>
   <h2>King Hall Eats</h2>
