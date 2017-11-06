@@ -2,7 +2,7 @@
   //returns array of all friends of person with inputed name from friends file
   function showyourfriends($name){
     $array;
-   $fp = fopen("friends.txt", 'r');   //open the file for reading
+   $fp = fopen("Logs/friends.txt", 'r');   //open the file for reading
    $line = fgets($fp);          // read lines
    $counter=0;
    while( !feof($fp) ) {
@@ -21,7 +21,7 @@
   if($_POST['name']==''){echo"Let's add some friends! Put your information in the boxes below:";}
   else{
     //add name, friend to friends.txt in each new line
-    $file = fopen("friends.txt",'a');
+    $file = fopen("Logs/friends.txt",'a');
     $data = $_POST['name'].", ".$_POST['friend']."\n";
     fwrite($file,$data);
     if($_POST['user']!=""){echo"Thanks for adding a friend!";}
