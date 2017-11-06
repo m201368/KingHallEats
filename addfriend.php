@@ -27,7 +27,7 @@
   }
 
 
-  if($_POST['name']==''){echo"Let's add some friends! Put your information in the boxes below:";}
+  if($_SESSION['user']==''){echo"Let's add some friends! Login!";}
   else{
     //add name, friend to friends.txt in each new line
     $file = fopen("Logs/friends.txt",'a');
@@ -49,7 +49,7 @@
     function check(){
       var x = document.getElementById("form");
       var go = true;
-      if(x.names.value == ""){go = false;}
+      
       if(x.friend.value == ""){go = false;}
       if(go){return true;}
       else{
