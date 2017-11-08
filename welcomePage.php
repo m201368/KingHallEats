@@ -21,8 +21,7 @@
     <link type="text/css" rel="stylesheet" href="default.css">
 </head>
 <body>
-  <h2>King Hall Eats</h2>
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-custom">
     <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -45,12 +44,20 @@
           <input type="text" class="form-control" placeholder="Username" name="user">
           <input type="text" class="form-control" placeholder="Password" name="pass">
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-default">Log In</button>
       </form>
     </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
-  <h1>Welcome to King Hall Eats!</h1>
-  <h4>Based on the widely used "UberEats", King Hall Eats aims to serve the United States Naval Academy Brigade of Midshipmen through door-to-door food delivery within Bancroft Hall. This service is fully provided BY mids FOR mids!</h4>
+  <div class="row text-center">
+    <div class="col-md-2"></div>
+    <div class="col-md-4">
+      What we're about
+    </div>
+    <div class="col-md-4">
+      Form to sign up
+    </div>
+    <div class="col-md-2"></div>
+  </div>
 </body>
 </html>
