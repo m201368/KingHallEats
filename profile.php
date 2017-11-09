@@ -27,14 +27,16 @@ function readRequests($fileName){
   $array;
   $fp = fopen($fileName, 'r');   //open the file for reading
   $line = fgets($fp);          // read lines
+  $count = 0;
   while( !feof($fp) ) {
     $l = explode(";", $line);
-    $array[$l[0]]['user'] = $l[0];
-    $array[$l[0]]['food'] = $l[1];
-    $array[$l[0]]['comment'] = $l[2];
-    $array[$l[0]]['time'] = $l[3];
-    $array[$l[0]]['stat'] = $l[4];
+    $array[$count]['user'] = $l[0];
+    $array[$count]['food'] = $l[1];
+    $array[$count]['comment'] = $l[2];
+    $array[$count]['time'] = $l[3];
+    $array[$count]['stat'] = $l[4];
     $line = fgets($fp);
+    $count++
   }
   fclose($fp);                   //close the file
   return $array;
@@ -103,8 +105,8 @@ else{
     <?php
       $requests = readRequests("requests.txt");
       foreach ($requests as $key => $value) {
-        if($key==$user){
-          echo "Request: ".$requests[$key]["food"]." Comment: ".$request["comment"]." Status: ".$requests[$key]["stat"];
+        if($requests[$key]["user"]==$user){
+          echo "Request: ".$requests[$key]["food"]." Comment: ".$request["comment"]." Status: ".$requests[$key]["stat"]."<br>";
         }
       }
 
