@@ -37,7 +37,7 @@ Last Edited: 28 OCT 2017
 <body>
   <?php
   if (isset($_POST['sFood'])) {
-    $file = fopen("Logs/requests.txt", 'a+') or die("can't open file");
+    $file = fopen("requests.txt", 'a+') or die("can't open file");
     $order = $_SESSION['user'] ."; ".($_POST['sFood'])."; ".($_POST['com'])."; ".(time())."; incomplete;\n";
     fwrite($file, $order);
     fclose($file);
