@@ -9,8 +9,8 @@ Last Edited: 28 OCT 2017
 <html>
 
 <?php
+  session_start();
   if(!isset($_SESSION['user'])) {
-    session_start();
     ?><script type="text/javascript">
       document.location = "welcomePage.php";
     </script><?php
