@@ -1,13 +1,14 @@
 body {
-  font-family: 'Cabin', sans-serif;
+    font-family: 'Open Sans', sans-serif !important;
 }
 
 .table {
   border: 1px solid #d9d9d9 !important;
 }
 
-.skin-blue .main-header .navbar {
-  background-color: #054a71;
+.navbar-custom {
+    color: #FFFFFF;
+    background-color: #054a71;
 }
 
 h1, h4 {

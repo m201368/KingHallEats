@@ -42,7 +42,7 @@
       <form class="navbar-form navbar-right" method="POST" action="profile.php">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Username" name="user">
-          <input type="text" class="form-control" placeholder="Password" name="pass">
+          <input type="password" class="form-control" placeholder="Password" name="pass">
         </div>
         <button type="submit" class="btn btn-default">Log In</button>
       </form>
