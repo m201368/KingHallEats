@@ -36,7 +36,7 @@ function readRequests($fileName){
     $array[$count]['time'] = $l[3];
     $array[$count]['stat'] = $l[4];
     $line = fgets($fp);
-    $count++
+    $count++;
   }
   fclose($fp);                   //close the file
   return $array;
