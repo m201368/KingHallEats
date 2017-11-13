@@ -67,13 +67,16 @@
   </div>
   <div class="row text-center">
     <div class="col-md-4">
-      Selection you want
+      <h4>Selection you want</h4>
+      <img src="#" alt="sorry, you're slow" class="img-rounded">
     </div>
     <div class="col-md-4">
-      At the price you want
+      <h4>At the price you want</h4>
+      <img src="#" alt="sorry, you're slow" class="img-rounded">
     </div>
     <div class="col-md-4">
-      Without ever leaving your room
+      <h4>Without ever leaving your room</h4>
+      <img src="#" alt="sorry, you're slow" class="img-rounded">
     </div>
   </div>
 </body>
