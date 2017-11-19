@@ -31,7 +31,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="./welcomePage.php">
         <span class="glyphicon glyphicon-ice-lolly-tasted" aria-hidden="true"></span>
       </a>
     </div>
