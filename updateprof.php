@@ -54,17 +54,21 @@
     </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
+  <div class="container-fluid text-center">
+    <h2>Update Your Profile</h2>
+    <p></p>
+  </div>
   <div class="container">
     <div class="row text-center">
       <div class="col-md-8 col-md-offset-2">
         <form action="#">
           <div class="form-group">
-            <input type="text" placeholder="Full Name">
-            <input type="text" placeholder="Company">
-            <input type="text" placeholder="Room Number">
-            <input type="username" placeholder="Username">
-            <input type="password" placeholder="Password">
-            <input type="submit" value="Submit Changes">
+            <input type="text" class="form-control" placeholder="Full Name">
+            <input type="text" class="form-control" placeholder="Company">
+            <input type="text" class="form-control" placeholder="Room Number">
+            <input type="username" class="form-control" placeholder="Username">
+            <input type="password" class="form-control" placeholder="Password">
+            <input type="submit" class="form-control" value="Submit Changes">
           </div>
         </form>
       </div>
