@@ -31,7 +31,7 @@
   }
   else{
     $file = fopen("users.txt",'a');
-    $data = $_POST['user'].", ".sha1($_POST['pass']).", ".$_POST['names'].", ".$_POST['company'].", ".$_POST['room']."\n";
+    $data = $_POST['user'].",".sha1($_POST['pass']).", ".$_POST['names'].", ".$_POST['company'].", ".$_POST['room']."\n";
     fwrite($file,$data);
     if($_POST['user']!=""){echo"Thanks for making an account!";}
   }
