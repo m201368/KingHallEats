@@ -1,38 +1,40 @@
 <?php
 
-function readUsers($fileName){
-  $array;
-  $fp = fopen($fileName, 'r');   //open the file for reading
+function readUsers($fileName)
+{
+    $array;
+    $fp = fopen($fileName, 'r');   //open the file for reading
   $line = fgets($fp);          // read lines
-  while( !feof($fp) ) {
-    $l = explode(",", $line);
-    $array[$l[0]]['user'] = $l[0];
-    $array[$l[0]]['pass'] = $l[1];
-    $array[$l[0]]['name'] = $l[2];
-    $array[$l[0]]['company'] = $l[3];
-    $array[$l[0]]['room'] = $l[4];
-    $line = fgets($fp);
+  while (!feof($fp)) {
+      $l = explode(",", $line);
+      $array[$l[0]]['user'] = $l[0];
+      $array[$l[0]]['pass'] = $l[1];
+      $array[$l[0]]['name'] = $l[2];
+      $array[$l[0]]['company'] = $l[3];
+      $array[$l[0]]['room'] = $l[4];
+      $line = fgets($fp);
   }
-  fclose($fp);                   //close the file
-  return $array;
+    fclose($fp);                   //close the file
+    return $array;
 }
-function checkInfo($array){
-  if(isset($array[$_POST["user"]])){
-    if($array[$_POST["user"]]["pass"] == sha1($_POST["pass"])){
-      return true;
+function checkInfo($array)
+{
+    if (isset($array[$_POST["user"]])) {
+        if ($array[$_POST["user"]]["pass"] == sha1($_POST["pass"])) {
+            return true;
+        }
+    } else {
+        return false;
     }
-  }
-  else{return false;}
 }
 $array  = readUsers("users.txt");
 $user = $_POST["user"];
 $pass = $_POST["pass"];
-if(checkInfo($array)){
-  session_start();
-  $_SESSION['user'] = $user;
-}
-else{
-  header("location: welcomePage.php?fail=yes");
+if (checkInfo($array)) {
+    session_start();
+    $_SESSION['user'] = $user;
+} else {
+    header("location: welcomePage.php?fail=yes");
 }
 
 function readRequests($fileName)
@@ -55,7 +57,10 @@ function readRequests($fileName)
     //close the file
     return $request;
 }
-
+function agreetodeliver()
+{
+    header("location: deliver.php");
+}
 function showyourfriends($name)
 {
     $friend;
@@ -130,14 +135,12 @@ $friends= showyourfriends($user);
         for ($i=0; $i<sizeof($friends); $i++) {
             $name=$friends[$i];
 
-        foreach ($requests as $key => $value) {
-          $requester=$requests[$key]["stat"];
-          $tester="incomplete";
-              if(strcmp($name,$requests[$key]["user"])==1 && strpos($requester,$tester)== TRUE){
-                    echo "<tr><td>".$requests[$key]["user"]."</td><td>".$requests[$key]["food"]."</td><td>".$requests[$key]["comment"]."</td></tr>";
-              }
-
-
+            foreach ($requests as $key => $value) {
+                $requester=$requests[$key]["stat"];
+                $tester="incomplete";
+                if (strcmp($name, $requests[$key]["user"])==1 && strpos($requester, $tester)== true) {
+                    echo "<tr onclick=\"agreetodeliver()\"><td>".$requests[$key]["user"]."</td><td>".$requests[$key]["food"]."</td><td>".$requests[$key]["comment"]."</td></tr>";
+                }
             }
         }
     ?>
@@ -162,12 +165,10 @@ $friends= showyourfriends($user);
             $tester="incomplete";
 
 
-              if($requests[$key]["user"]===$user && strpos($requester,$tester)== TRUE ){
-                    echo "<tr><td>".$requests[$key]["food"]."</td><td>".$requests[$key]["comment"]."</td><td>".$requests[$key]["stat"]."</td></tr>";
-              }
-
-
+            if ($requests[$key]["user"]===$user && strpos($requester, $tester)== true) {
+                echo "<tr><td>".$requests[$key]["food"]."</td><td>".$requests[$key]["comment"]."</td><td>".$requests[$key]["stat"]."</td></tr>";
             }
+        }
 
     ?>
     </tbody>
