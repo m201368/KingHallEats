@@ -65,7 +65,7 @@
   <div class="container">
     <div class="row text-center">
       <div class="col-md-8 col-md-offset-2">
-        <form action="mailto:m190354@usna.edu">
+        <form action="mailto:m190354@usna.edu" enctype="text/plain">
           <div class="form-group">
             <input type="text" name="name" class="form-control" placeholder="Name">
             <input type="email" name="email" class="form-control" placeholder="Email">
