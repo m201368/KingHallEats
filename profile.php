@@ -106,7 +106,7 @@ else{
       $requests = readRequests("requests.txt");
       foreach ($requests as $key => $value) {
         if($requests[$key]["user"]==$user){
-          echo "Request: ".$requests[$key]["food"]." Comment: ".$request["comment"]." Status: ".$requests[$key]["stat"]."<br>";
+          echo "Request: ".$requests[$key]["food"]." Comment: ".$requests[$key]["comment"]." Status: ".$requests[$key]["stat"]."<br>";
         }
       }
 
