@@ -20,12 +20,7 @@ function readRequests($fileName)
     return $request;
 }
 
-function searcher($x){
-;
-  //uppercase
-  $search=$x.toUpperCase();
 
-  }
 
 
 ?>
@@ -66,7 +61,7 @@ function searcher($x){
 
     <form class="form"method='post' action="" >
     <label for='search'>Search for a request</label>
-      <input type='text' name='search' id='search' onkeyup="searcher(this.value)">
+      <input type='text' name='search' id='search'>
        <input type="submit" value="Submit Form">
 
     </form>
@@ -81,16 +76,29 @@ function searcher($x){
       <tbody>
 
     <?php
-    
+
       $requests = readRequests("requests.txt");
 
         foreach ($requests as $key => $value) {
+          if($_POST['search']==""){
           $requester=$requests[$key]["stat"];
           $tester="incomplete";
           if (strpos($requester, $tester)== true) {
 
                 echo "<tr><td>".$requests[$key]["user"]."</td><td>".$requests[$key]["food"]."</td><td>".$requests[$key]["comment"]."</td><td>".$requests[$key]["time"]."</td><td>".$requests[$key]["stat"]."</td></tr>";
         }
+      }else{
+        $requester=$requests[$key]["stat"];
+        $tester="incomplete";
+        $user=$requests[$key]["user"];
+        $food=$requests[$key]["food"];
+        $comment=$requests[$key]["comment"];
+
+        if (strpos($requester, $tester)== true && (strpos($user,$_POST['search'])!==FALSE || strpos($food,$_POST['search'])!==FALSE || strpos($comment,$_POST['search'])!==FALSE )) {
+
+              echo "<tr><td>".$requests[$key]["user"]."</td><td>".$requests[$key]["food"]."</td><td>".$requests[$key]["comment"]."</td><td>".$requests[$key]["time"]."</td><td>".$requests[$key]["stat"]."</td></tr>";
+      }
+      }
       }
 
     ?>
