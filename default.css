@@ -9,8 +9,15 @@ body {
 .navbar-custom {
     color: #FFFFFF;
     background-color: #054a71;
+    margin: 0;
+    padding: 0;
 }
 
 h1, h4 {
   text-align: center;
+}
+
+.navbar-custom img
+{
+    max-height: 100%;
 }
