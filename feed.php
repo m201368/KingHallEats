@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 function readUsers($fileName)
 {
     $array;
@@ -17,12 +17,25 @@ function readUsers($fileName)
     fclose($fp);                   //close the file
     return $array;
 }
-$array  = readUsers("users.txt");
-if (isset($_SESSION["user"]) {
-    $user = $_SESSION['user'];
-} else {
-    header("location: welcomePage.php?fail=yes");
+function checkInfo($array)
+{
+    if (isset($array[$_POST["user"]])) {
+        if ($array[$_POST["user"]]["pass"] == sha1($_POST["pass"])) {
+            return true;
+        }
+    } else {
+        return false;
+    }
 }
+$array  = readUsers("users.txt");
+$user = "hello";
+$pass = $_POST["pass"];
+// if (checkInfo($array)) {
+//     session_start();
+//     $_SESSION['user'] = $user;
+// } else {
+//     header("location: welcomePage.php?fail=yes");
+// }
 
 function readRequests($fileName)
 {
@@ -162,3 +175,4 @@ $friends= showyourfriends($user);
     </table>
 </div>
 </div>
+
