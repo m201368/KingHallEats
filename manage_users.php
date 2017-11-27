@@ -4,12 +4,12 @@
   //if not, they're directed to the login page
   //if they're logged in but not an admin, it tells them they aren't allowed in
   session_start();
-  require_once("functions.php");
+  require_once("lib_read_csv.php");
   if (!isset($_SESSION['user'])) {
-    header("Location: http://midn.cs.usna.edu/~m200516/IT350/Lab12/part2.php");
+    header("Location: signup.php");
     exit();
   } else {
-    $CSV = read_csv("info.csv");
+    $CSV = read_csv("users.txt");
     if ($CSV[$_SESSION['user']]['accesslevel'] != 'admin') {
       echo "<b>You're not allowed on this page</b>";
       exit();
@@ -61,6 +61,7 @@
     fclose($file);
     //give the admin options to create a user
   } else { ?>
+    Add a user:
     <form method='Post' action='?'>
       <input type="text" name="addUser" placeholder="Username">
       <input type="password" name="pass" placeholder="Password">
@@ -72,7 +73,9 @@
         <option value="user">User</option>
       </select>
       <br>
-      <input type="Submit" value="Create User">
+      Remove a User:
+      <input type="text" name="removeUser" placeholder="Username">
+      <input type="Submit" value="Create/Remove User">
     </form>
     <div class="row">
       <div class="col-md-4"></div>
