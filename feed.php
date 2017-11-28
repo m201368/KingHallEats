@@ -136,12 +136,15 @@ $friends = showyourfriends($user);
             <tr><th>Request</th><th>Comments</th><th>Status</th></tr>
           </thead>
           <tbody>
-            <?php
-              // $requests = readRequests("requests.txt");
-                foreach ($requests as $key ) {
-                  echo $requests[$key]["user"];
-                  echo $user;
-                    if ($requests[$key]["user"]==$user) {
+           <?php
+               //$requests = readRequests("requests.txt");
+                foreach ($requests as $key => $value) {
+                  // echo $requests[$key]["food"]."  from key    ";
+                  //
+                  // echo "<br>".strcmp($requests[$key]["user"],$user)." result of strcmp<br>";
+                    if (strcmp($user,$requests[$key]["user"])==0) {
+
+                      //echo "funny";
                         echo "<tr><td>".$requests[$key]["food"]."</td><td>".$requests[$key]["comment"]."</td><td>".$requests[$key]["stat"]."</td></tr>";
                     }
                 }
