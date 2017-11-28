@@ -45,10 +45,10 @@
     //close the file
     return $request;
   }
-  function agreetodeliver()
-  {
-      header("location: deliver.php");
-  }
+  // function agreetodeliver()
+  // {
+  //     header("location: deliver.php");
+  // }
 function showyourfriends($name)
 {
   $friend;
@@ -109,17 +109,21 @@ $friends = showyourfriends($user);
           <tbody>
             <?php
               $requests = readRequests("requests.txt");
-              echo"<pre>";
-              print_r($requests);
-              echo"</pre>";
+              // echo"<pre>";
+              // print_r($requests);
+              // echo"</pre>";
               for ($i=0; $i<sizeof($friends); $i++) {
                   $name=$friends[$i];
 
                   foreach ($requests as $key => $value) {
-                      $requester=$requests[$key]["stat"];
-                      $tester="incomplete";
-                      if ($name === $requests[$key]["user"]) {
-                          echo "<tr onclick=\"agreetodeliver()\"><td>".$requests[$key]["user"]."</td><td>".$requests[$key]["food"]."</td><td>".$requests[$key]["comment"]."</td></tr>";
+                      // $requester=$requests[$key]["stat"];
+                      // $tester="incomplete";
+                      // echo $name." name<br>";
+                      // echo $requests[$key]["user"]," requester<br><br>";
+                      // echo strcmp($name,$requests[$key]["user"])." result of strcmp <br><br>";
+                      if (strcmp($name,$requests[$key]["user"])==1) {
+                        //<tr onclick=\"agreetodeliver()\">
+                          echo "<tr><td>".$requests[$key]["user"]."</td><td>".$requests[$key]["food"]."</td><td>".$requests[$key]["comment"]."</td></tr>";
                       }
                   }
               }
@@ -136,7 +140,7 @@ $friends = showyourfriends($user);
             <tr><th>Request</th><th>Comments</th><th>Status</th></tr>
           </thead>
           <tbody>
-           <?php
+            <?php
                //$requests = readRequests("requests.txt");
                 foreach ($requests as $key => $value) {
                   // echo $requests[$key]["food"]."  from key    ";
@@ -156,5 +160,3 @@ $friends = showyourfriends($user);
     </div>
   </body>
 </html>
-
-
