@@ -31,7 +31,7 @@
   else{
     //add name, friend to friends.txt in each new line
     $file = fopen("friends.txt",'a');
-    $data = $_SESSION['user'].", ".$_POST['friend']."\n";
+    $data = $_SESSION['user'].",".$_POST['friend']."\n";
     fwrite($file,$data);
     if($_SESSION['user']!=""){echo"Thanks for adding a friend!";}
   }
