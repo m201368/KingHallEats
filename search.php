@@ -62,7 +62,7 @@ function readRequests($fileName)
     <form class="form"method='post' action="" >
     <label for='search'>Search for a request</label>
       <input type='text' name='search' id='search'>
-       <input type="submit" value="Submit Form">
+       <input type="submit" value="Search">
 
     </form>
 
