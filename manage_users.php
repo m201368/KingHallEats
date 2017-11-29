@@ -15,6 +15,7 @@
       exit();
     }
   }
+
 ?>
 
 <html>
@@ -49,37 +50,62 @@
   <?php
   //creates user given username, password, full name, and access level from form
   if (isset($_SESSION['user'])) {
-    $file = fopen("users.txt", 'a+') or die("can't open file");
+    $file = fopen("users.txt", 'a+') or die("invalid logs");
     if (isset($_POST['addUser'])) {
       $entry = $_POST['addUser'] .", ".($_POST['pass']).", ".$_POST['name'].", ".$_POST['company'].", ".$_POST['room'].", ".$_POST['access']."\n";
       fwrite($file, $entry);
       print "<b>User Successfully Created!</b>";
     }
     if (isset($_POST['removeUser'])) {
-
+      foreach($CSV as $user) {
+        if ($user == $_POST['removeUser']) {
+          foreach ($user as $userData) {
+            $userData = "";
+          }
+        } else if ($user == "end") {
+          echo "The user you wanted to remove doesn't exist!";
+        }
+      }
+      $file = fopen("users.txt", 'w') or die("invalid logs");
+      fputcsv($file, $CSV);
     }
     fclose($file);
     //give the admin options to create a user
   } else { ?>
-    Add a user:
     <form method='Post' action='?'>
-      <input type="text" name="addUser" placeholder="Username">
-      <input type="password" name="pass" placeholder="Password">
-      <input type="text" name="name" placeholder="Full Name">
-      <input type="text" name="name" placeholder="Room">
-      <select name="access">
-        <option value="">Access Level</option>
-        <option value="admin">Admin</option>
-        <option value="user">User</option>
-      </select>
-      <br>
-      Remove a User:
-      <input type="text" name="removeUser" placeholder="Username">
-      <input type="Submit" value="Create/Remove User">
+      <div class="row">
+        <div class="col-md-6 text-center">
+          <br>
+          Add a user:
+          <input type="text" name="addUser" placeholder="Username">
+          <input type="password" name="pass" placeholder="Password">
+          <input type="text" name="name" placeholder="Full Name">
+          <input type="text" name="name" placeholder="Room">
+          <select name="access">
+            <option value="">Access Level</option>
+            <option value="admin">Admin</option>
+            <option value="user">User</option>
+          </select>
+        </div>
+        <div class="col-md-6 text-center">
+          <br>
+          Remove a User:
+          <input type="text" name="removeUser" placeholder="Username">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4 text-center">
+          <br>
+          <input type="Submit" value="Create/Remove User">
+        </div>
+        <div class="col-md-4"></div>
+      </div>
     </form>
     <div class="row">
       <div class="col-md-4"></div>
       <div class="col-md-4">
+        <br>
         <?php }
         $CSV = read_csv("info.csv");
         print "<table class=\"table table-striped\"><thead><tr><th>Username</th><th>Password</th><th>Full Name</th><th>Access Level</th></tr></thead><tbody>";
