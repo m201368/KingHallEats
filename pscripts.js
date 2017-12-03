@@ -1,24 +1,16 @@
-/*
-Description: JavaScript file for functions that work onchange for forms.
-Created by : Ben Birney
-Created on : 23 OCT 2017
-Last Edited: 25 OCT 2017
-*/
-
-//Function generates a form containing specific food for food_request.php. This will change once I format King Hall menus to be read
 function specificRequest() {
   var select = document.getElementById("cat");
   var category = select.options[select.selectedIndex].value;
 
   if (category == "meal") {
-    document.getElementById("specificFood").innerHTML = "<select name=\"sFood\">"+
+    document.getElementById("specificFood").innerHTML = "<select name=\"sFood\" style=\"max-width:50%;margin-left:auto;margin-right:auto;\" class=\"form-control\">"+
                                              "<option value=\" \">Specific Food</option>"+
                                              "<option value=\"entree\">Entree</option>"+
                                              "<option value=\"salad\">Salad Bar</option>"+
                                              "<option value=\"pizza\">Pizza</option>"+
                                              "</select><br>";
   } else if (category == "dairy") {
-    document.getElementById("specificFood").innerHTML = "<select name=\"sFood\">"+
+    document.getElementById("specificFood").innerHTML = "<select name=\"sFood\" style=\"max-width:50%;margin-left:auto;margin-right:auto;\" class=\"form-control\">"+
                                              "<option value=\" \">Specific Food</option>"+
                                              "<option value=\"wMilk\">Milk (Whole)</option>"+
                                              "<option value=\"tMilk\">Milk (2%)</option>"+
@@ -28,7 +20,7 @@ function specificRequest() {
                                              "<option value=\"yogurt\">Yogurt</option>"+
                                              "</select><br>";
   } else if (category == "cereal") {
-    document.getElementById("specificFood").innerHTML = "<select name=\"sFood\">"+
+    document.getElementById("specificFood").innerHTML = "<select name=\"sFood\" style=\"max-width:50%;margin-left:auto;margin-right:auto;\" class=\"form-control\">"+
                                              "<option value=\" \">Specific Food</option>"+
                                              "<option value=\"luckyCharms\">Lucky Charm's</option>"+
                                              "<option value=\"kashi\">Kashi</option>"+
@@ -38,7 +30,7 @@ function specificRequest() {
                                              "<option value=\"cheerios\">Honey Nut Cheerios</option>"+
                                              "</select><br>";
   } else if (category == "produce") {
-    document.getElementById("specificFood").innerHTML = "<select name=\"sFood\">"+
+    document.getElementById("specificFood").innerHTML = "<select name=\"sFood\" style=\"max-width:50%;margin-left:auto;margin-right:auto;\" class=\"form-control\">"+
                                              "<option value=\" \">Specific Food</option>"+
                                              "<option value=\"carrots\">Carrots</option>"+
                                              "<option value=\"beans\">Green Beans</option>"+
@@ -46,7 +38,7 @@ function specificRequest() {
                                              "<option value=\"salad\">Salad</option>"+
                                              "</select><br>";
   } else if (category == "snax") {
-    document.getElementById("specificFood").innerHTML = "<select name=\"sFood\">"+
+    document.getElementById("specificFood").innerHTML = "<select name=\"sFood\" style=\"max-width:50%;margin-left:auto;margin-right:auto;\" class=\"form-control\">"+
                                              "<option value=\" \">Specific Food</option>"+
                                              "<option value=\"cookie\">Cookie</option>"+
                                              "<option value=\"brownie\">Brownie</option>"+
