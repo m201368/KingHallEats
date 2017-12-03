@@ -18,45 +18,102 @@ Last Edited: 28 OCT 2017
 ?>
 
 <head>
-  <style type="text/css">
-    table, td, th {
-      border: 1px solid black;
-    }
-  </style>
   <meta charset="UTF-8">
-  <meta name="description" content="Food Request for KingHallEats">
-  <meta name="keywords" content="King, Hall, Eats, Food, Request">
+  <meta name="description" content="Food Request for KHE">
+  <meta name="keywords" content="food, request, king, hall, kinghalleats">
   <meta name="author" content="Ben Birney">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="http://grfx.cstv.com/graphics/school-logos/navy-lg.png">
   <title>Food Request</title>
-  <script type="text/javascript" src="pscripts.js"></script>
-  <link href="bootstrap/css.bootstrap.min.css" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery.min.js"></script>
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
+  <link type="text/css" rel="stylesheet" href="default.css">
+  <script src="pscripts.js"></script>
 </head>
 
 <body>
+  <nav class="navbar navbar-custom">
+    <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <a class="navbar-brand" href="./welcomePage.php">
+        <span class="glyphicon glyphicon-ice-lolly-tasted" aria-hidden="true"></span>
+      </a>
+      <ul class="nav navbar-nav">
+        <li><a href="./contactus.php">Contact Us</a></li>
+      </ul>
+      <form class="navbar-form navbar-right" role="search">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search" name="q">
+            <div class="input-group-btn">
+              <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+        </div>
+      </form>
+    </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+  <br>
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-2 jumbotron">
+      <h3 class="text-center"><?php echo $_SESSION['username'];?></h3><br>
+      <div style="max-width:75%;margin-left:auto;margin-right:auto;background-color:white;">
+        <img src="IDONTKNOW" alt="Profile Picture">
+      </div>
+      <br>
+      Name: <?php echo $data[$_SESSION['username']]['fullname'];?><br>
+      Company: <?php echo $data[$_SESSION['username']]['company'];?><br>
+      Room: <?php echo $data[$_SESSION['username']]['room'];?><br>
+      Bio: <?php echo $data[$_SESSION['username']]['bio'];?><br>
+    </div>
   <?php
   if (isset($_POST['sFood'])) {
-    $file = fopen("requests.txt", 'a+') or die("can't open file");
-    $order = $_SESSION['user'] ."; ".($_POST['sFood'])."; ".($_POST['com'])."; ".(time())."; incomplete;\n";
-    fwrite($file, $order);
-    fclose($file);
-    print "<b>Thanks for submitting a request!</b>";
+    ?> <div class="col-md-9 text-center"><?php
+    $file = "Logs/requests.txt";
+    if(file_exists($file)) {
+      $fin = fopen($file, "a+") or die("you cant write to the file");
+      $order = "username; ".($_POST['sFood'])."; ".($_POST['com'])."; ".(time())."; incomplete;\n";
+      echo fwrite($fin, $order);
+      fclose($file);
+      print "<b>Thanks for submitting a request!</b>";
+    } else {
+      echo "file doesnt exist";
+    }
+    ?></div><?php
   } else { ?>
-    <form method='Post' action='?'>
-      <select id="cat" onchange="specificRequest()">
-        <option value=" ">Food Category</option>
-        <option value="meal">Meal</option>
-        <option value="dairy">Dairy</option>
-        <option value="cereal">Cereal</option>
-        <option value="produce">Produce</option>
-        <option value="snax">Snacks</option>
-      </select>
-      <br>
-      <div id="specificFood"></div>
-      <input type="text" name="com" placeholder="Comments">
-      <input type="Submit" value="Submit">
-    </form>
+    <div class="col-md-9 text-center">
+      <h2>Request Food</h2>
+      <form method='Post' action='?'>
+        <select id="cat" style="max-width:50%;margin-left:auto;margin-right:auto;" class="form-control" onchange="specificRequest()">
+          <option value=" ">Food Category</option>
+          <option value="meal">Meal</option>
+          <option value="dairy">Dairy</option>
+          <option value="cereal">Cereal</option>
+          <option value="produce">Produce</option>
+          <option value="snax">Snacks</option>
+        </select>
+        <br>
+        <div id="specificFood"></div>
+        <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="com" placeholder="Comments">
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+    </div>
   <?php } ?>
 </body>
 
