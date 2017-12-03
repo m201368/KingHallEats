@@ -9,12 +9,12 @@ Last Edited: 28 OCT 2017
 <html>
 
 <?php
-  session_start();
+/*  session_start();
   if(!isset($_SESSION['user'])) {
     ?><script type="text/javascript">
       document.location = "welcomePage.php";
     </script><?php
-  }
+  }*/
 ?>
 
 <head>
@@ -65,6 +65,11 @@ Last Edited: 28 OCT 2017
             </div>
         </div>
       </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="./food_request.php">Request Food</a></li>
+        <li><a href="./feed.php">NewsFeed</a></li>
+        <li><a href="./updateprof.php">Profile</a></li>
+      </ul>
     </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
