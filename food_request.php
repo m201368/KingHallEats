@@ -9,12 +9,12 @@ Last Edited: 28 OCT 2017
 <html>
 
 <?php
-/*  session_start();
+  session_start();
   if(!isset($_SESSION['user'])) {
     ?><script type="text/javascript">
       document.location = "welcomePage.php";
     </script><?php
-  }*/
+  }
 ?>
 
 <head>
