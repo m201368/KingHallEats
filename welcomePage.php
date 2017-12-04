@@ -39,10 +39,6 @@
         <span class="glyphicon glyphicon-ice-lolly-tasted" aria-hidden="true"></span>
       </a>
       <ul class="nav navbar-nav">
-        <li><a href="./companyfeed.php">Company Feeds</a></li>
-        <li><a href="./search.php">Search Requests</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
         <li><a href="./contactus.php">Contact Us</a></li>
       </ul>
       <form class="navbar-form navbar-right" method="POST" action="profile.php">
@@ -55,16 +51,14 @@
     </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
-  <br><br>
+  <br><br><br>
   <div class="row text-center">
     <div class="col-md-2"></div>
     <div class="col-md-4">
       <div class="jumbotron">
-        <h2 class="text-center">What we're about</h2><br>
-        <p>
-        <h4>King Hall Eats is a service provided by midshipman, for midshipman as a way to organize the delivery of food from the one and only King Hall up to your room.</h4>
-        <br><br>
-        </p>
+        <h2 class="text-center">What we're about</h4><br>
+        King Hall Eats is a service provided by midshipman, for midshipman as a way to organize the delivery of food from the one and only King Hall up to your room.
+        <br><br>***We should probably make this longer***<br><br><br><br><br><br><br><br><br><br><br><br><br>
       </div>
     </div>
     <div class="col-md-4">
