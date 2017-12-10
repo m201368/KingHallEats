@@ -116,19 +116,20 @@
     </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
+
   <div class="row">
     <div class="col-md-4"></div>
     <div class="col-md-4 text-center">
       <br><br>
       <div class="jumbotron text-center">
-      <h3>Sign Up!</h3>
+      <h2>Sign Up!</h2>
       <br>
       <form action="?" id="form" method="POST" onsubmit="check()">
-        Name: <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="names"><br>
-        Company: <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="company"><br>
-        Room Number: <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="room"><br>
-        Username: <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="user"><br>
-        Password: <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="pass"><br>
+        <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="names" placeholder="Name"><br>
+        <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="company" placeholder="Company"><br>
+        <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="room" placeholder="Room #"><br>
+        <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="user" placeholder="Username"><br>
+        <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="pass" placeholder="Password"><br>
         <button type="submit" class="btn btn-default">Create Profile</button>
       </form>
     </div>
