@@ -68,6 +68,7 @@ if(checkInfo($array)){
 else{
   header("location: welcomePage.php?fail=yes");
 }
+
 ?>
 <html>
   <head>
@@ -91,38 +92,82 @@ else{
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="default.css">
   </head>
   <body>
-    <b><u>User Information:</u></b><br>
-    <?php
-      echo "Name: ".$array[$user]["name"]."<br>";
-      echo "Username: ".$user."<br>";
-      echo "Company: ".$array[$user]["company"]."<br>";
-      echo "Room #: ".$array[$user]["room"]."<br>";
-    ?>
-    <br>
-    <b><u>Requests:</u></b><br>
-    <?php
-      $requests = readRequests("requests.txt");
-      foreach ($requests as $key => $value) {
-        if($requests[$key]["user"]==$user){
-          echo "Request: ".$requests[$key]["food"]." Comment: ".$requests[$key]["comment"]." Status: ".$requests[$key]["stat"]."<br>";
-        }
-      }
+    <nav class="navbar navbar-custom">
+      <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
 
-    ?>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <a class="navbar-brand" href="./welcomePage.php">
+          <span class="glyphicon glyphicon-ice-lolly-tasted" aria-hidden="true"></span>
+        </a>
+        <ul class="nav navbar-nav">
+          <li><a href="./contactus.php">Contact Us</a></li>
+        </ul>
+        <form class="navbar-form navbar-right" role="search">
+          <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search" name="q">
+              <div class="input-group-btn">
+                <button class="btn btn-default form-control" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+              </div>
+          </div>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="./food_request.php">Request Food</a></li>
+          <li><a href="./feed.php">NewsFeed</a></li>
+          <li><a href="./updateprof.php">Profile</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
     <br>
-    <a href="food_request.php">Request Food!</a><br>
-    <br>
-    <b><u>Your Friends Are:</u></b><br>
-    <?php
-      $friends = showyourfriends($user);
-      foreach ($friends as $key => $value) {
-        echo $value."<br>";
-      }
-    ?>
-    <br>
-    <a href="addfriend.php">Add a Friend!</a>
+    <div class="col-md-1"></div>
+    <div class="col-md-2 jumbotron">
+      <h3 class="text-center"><?php echo $_SESSION['username'];?></h3><br>
+      <div style="max-width:75%;margin-left:auto;margin-right:auto;background-color:white;">
+        <img src="IDONTKNOW" alt="Profile Picture">
+      </div>
+      <br>
+      Name: <?php echo $array[$user]["name"];?><br>
+      Company: <?php echo $user;?><br>
+      Room: <?php echo $array[$user]["company"];?><br>
+      Bio: <?php echo $array[$user]["room"];?><br>
+    </div>
+    <div class="col-md-9 text-center">
+      <br>
+      <h3>Requests:</h3>
+      <?php
+        $requests = readRequests("requests.txt");
+        foreach ($requests as $key => $value) {
+          if($requests[$key]["user"]==$user){
+            echo "Request: ".$requests[$key]["food"]." Comment: ".$requests[$key]["comment"]." Status: ".$requests[$key]["stat"]."<br>";
+          }
+        }
+
+      ?>
+      <br>
+      <a href="food_request.php">Request Food!</a><br>
+      <br>
+      <h3>Your Friends Are:</h3>
+      <?php
+        $friends = showyourfriends($user);
+        foreach ($friends as $key => $value) {
+          echo $value."<br>";
+        }
+      ?>
+      <br>
+      <a href="addfriend.php">Add a Friend!</a>
+    </div>
   </body>
 </html>
-
