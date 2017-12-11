@@ -83,14 +83,16 @@
     <div class="col-md-4">
       <div class="jumbotron text-center">
         <h2 class="text-center">Sign Up</h4>
-        <form action="" id="form" method="POST" action="signup.php">
-          <input type="text" class="form-control" name="names" style="max-width:50%;margin-left:auto;margin-right:auto;" placeholder="Name"><br>
-          <input type="text" class="form-control" name="company" style="max-width:50%;margin-left:auto;margin-right:auto;" placeholder="Company"><br>
-          <input type="text" class="form-control" name="room" style="max-width:50%;margin-left:auto;margin-right:auto;" placeholder="Room #"><br>
-          <input type="text" class="form-control" name="user" style="max-width:50%;margin-left:auto;margin-right:auto;" placeholder="Username"><br>
-          <input type="password" class="form-control" name="pass" style="max-width:50%;margin-left:auto;margin-right:auto;" placeholder="Password"><br>
-          <input type="text" class="form-control" name="allergy" style="max-width:50%;margin-left:auto;margin-right:auto;" placeholder="Allergies"><br>
-         <button type="submit" class="btn btn-default">Sign Up</button>
+        <form action="" id="form" method="POST" action="signup.php?">
+         <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="names" placeholder="Name"><br>
+         <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="company" placeholder="Company"><br>
+         <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="room" placeholder="Room #"><br>
+         <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="user" placeholder="Username"><br>
+         <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="pass" id="pass" placeholder="Password"><br>
+         <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="pass1" id="pass1" placeholder="Re-enter Password"><br>
+         <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="allergy" placeholder="Allergies"><br>
+         <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="favfood" placeholder="Favorite Food"><br>
+         <button type="submit" class="btn btn-default">Create Profile</button>
         </form>
        <br>
      </div>
