@@ -13,6 +13,8 @@
       $array[$l[0]]['name'] = $l[2];
       $array[$l[0]]['company'] = $l[3];
       $array[$l[0]]['room'] = $l[4];
+      $array[$l[0]]['allergy'] = $l[5];
+      $array[$l[0]]['status'] = $l[6];
       $line = fgets($fp);
     }
     fclose($fp);                   //close the file
@@ -34,7 +36,7 @@
   }
   else{
     $file = fopen("users.txt",'a');
-    $data = $_POST['user'].",".sha1($_POST['pass']).", ".$_POST['names'].",".$_POST['company'].", ".$_POST['room']."\n";
+    $data = $_POST['user'].",".sha1($_POST['pass']).",".$_POST['names'].",".$_POST['company'].",".$_POST['room'].",".$_POST["allergy"].",user"."\n";
     fwrite($file,$data);
     if($_POST['user']!=""){echo"Thanks for making an account!";}
   }
@@ -130,6 +132,7 @@
         <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="room" placeholder="Room #"><br>
         <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="user" placeholder="Username"><br>
         <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="pass" placeholder="Password"><br>
+        <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="allergy" placeholder="Allergies"><br>
         <button type="submit" class="btn btn-default">Create Profile</button>
       </form>
     </div>
