@@ -15,6 +15,7 @@
       $array[$l[0]]['room'] = $l[4];
       $array[$l[0]]['allergy'] = $l[5];
       $array[$l[0]]['status'] = $l[6];
+      $array[$l[0]]['favfood'] = $l[7];
       $line = fgets($fp);
     }
     fclose($fp);                   //close the file
@@ -36,9 +37,11 @@
   }
   else{
     $file = fopen("users.txt",'a');
-    $data = $_POST['user'].",".sha1($_POST['pass']).",".$_POST['names'].",".$_POST['company'].",".$_POST['room'].",".$_POST["allergy"].",user"."\n";
+    $data = $_POST['user'].",".sha1($_POST['pass']).",".$_POST['names'].",".$_POST['company'].",".$_POST['room'].",".$_POST["allergy"].",user,".$_POST["favfood"]."\n";
     fwrite($file,$data);
-    if($_POST['user']!=""){echo"Thanks for making an account!";}
+    session_start();
+    $_SESSION["user"] = $_POST["user"];
+    header("location: welcomePage.php");
   }
 
 ?>
@@ -71,17 +74,13 @@
   <script type="text/javascript">
     //make sure all boxes have been set
     function check(){
-      var x = document.getElementById("form");
-      var go = true;
-      if(x.names.value == ""){go = false;}
-      if(x.company.value == ""){go = false;}
-      if(x.room.value == ""){go = false;}
-      if(x.user.value == ""){go = false;}
-      if(x.pass.value == ""){go = false;}
-
-      if(go){return true;}
+      var x = document.getElementById("pass").value;
+      var y = document.getElementById("pass1").value;
+      if(x === y){
+        return true;
+      }
       else{
-        alert("You need to complete all of the boxes!");
+        alert("The passwords do not match.");
         return false;
       }
     }
@@ -126,13 +125,15 @@
       <div class="jumbotron text-center">
       <h2>Sign Up!</h2>
       <br>
-      <form action="?" id="form" method="POST" onsubmit="check()">
+      <form action="?" method="POST" onsubmit="return check()">
         <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="names" placeholder="Name"><br>
         <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="company" placeholder="Company"><br>
         <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="room" placeholder="Room #"><br>
         <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="user" placeholder="Username"><br>
-        <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="pass" placeholder="Password"><br>
+        <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="pass" id="pass" placeholder="Password"><br>
+        <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="pass1" id="pass1" placeholder="Re-enter Password"><br>
         <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="allergy" placeholder="Allergies"><br>
+        <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="favfood" placeholder="Favorite Food"><br>
         <button type="submit" class="btn btn-default">Create Profile</button>
       </form>
     </div>
