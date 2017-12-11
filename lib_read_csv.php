@@ -43,6 +43,8 @@
       foreach ($data as $row) {
         if ($row[$headers[0]] != "") {
           fputcsv($fp, $row, $withDelimiter);
+        } else if ($withHeaders == False) {
+          fputcsv($fp, $row, $withDelimiter);
         }
       }
 
