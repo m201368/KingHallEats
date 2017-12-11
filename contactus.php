@@ -109,5 +109,58 @@
       </div>
       </div>
     </div>
+    <div class="row">
+      <div class="col-md-3">
+        <div class="jumbotron text-center">
+        <h2>Lani Davis</h2>
+        <h4>Team Lead</h4>
+        <p style="font-size:12pt">
+          I am currently a Youngster at the United States Naval Academy<br>
+          I am a double major in Computer Science and Information Technology with a minor in Chinese<br>
+          Hobbies: I love to travel, cook, and read. I am also on the USNA Fencing team.<br>
+          I hope to service select Cryptologic Warfare.
+        </p>
+        <br>
+      </div>
+      </div>
+      <div class="col-md-3">
+        <div class="jumbotron text-center">
+        <h2>Ben Birney</h2>
+        <h4>Appearance Manager</h4>
+        <p style="font-size:12pt">
+          I am currently a Youngster at the United States Naval Academy<br>
+          I am a double major in Computer Science and Information Technology.<br>
+          Hobbies:I love to play chess. When I'm not playing chess or doing work, I also like to bike or look at pictures of my dog, Maisy.<br>
+          I hope to service select submarines.
+        </p>
+      </div>
+      </div>
+      <div class="col-md-3">
+        <div class="jumbotron text-center">
+        <h2>Chris Daves</h2>
+        <h4>Quality Control Manager</h4>
+        <p style="font-size:12pt">
+          I am currently a Youngster at the United States Naval Academy<br>
+          I am a double major in Computer Science and Information Technology.<br>
+          Hobbies: I am on the club soccer team, playing goalie.<br>
+          I hope to service select either submarines or Cryptologic Warfare.
+        </p>
+        <br>
+      </div>
+      </div>
+      <div class="col-md-3">
+        <div class="jumbotron text-center">
+        <h2>Sarah Barkley</h2>
+        <h4>Interface Manager</h4>
+        <p style="font-size:12pt">
+          I am currently a Second Class at the United States Naval Academy<br>
+          I am a Information Technology major.<br>
+          Hobbies: I'm a classical and jazz violinist and music has been a part of my life as long as I can remember. If I'm not practicing, you'll find me reading or writing.<br>
+          I hope to service select Marine Aviation.
+        </p>
+      </div>
+    </div>
+    </div>
+
 </body>
 </html>
