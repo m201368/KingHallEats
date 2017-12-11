@@ -27,7 +27,6 @@ function readRequests($fileName)
 
 <html>
   <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -54,26 +53,74 @@ function readRequests($fileName)
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link type="text/css" rel="stylesheet" href="default.css">
 
   </head>
   <body>
-    <h1><b><u>Search Page</u></b></h1>
+    <nav class="navbar navbar-custom">
+      <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
 
-    <form class="form"method='post' action="" >
-    <label for='search'>Search for a request</label>
-      <input type='text' name='search' id='search'>
-       <input type="submit" value="Search">
-
-    </form>
-
-    <h3><b><u>Current Requests:</u></b></h3>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <a class="navbar-brand" href="./welcomePage.php">
+          <span class="glyphicon glyphicon-ice-lolly-tasted" aria-hidden="true"></span>
+        </a>
+        <ul class="nav navbar-nav">
+          <li><a href="./contactus.php">Contact Us</a></li>
+        </ul>
+        <form method="post" class="navbar-form navbar-right" role="search">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search" name="search" id="search">
+            <div class="input-group-btn">
+                <button class="btn btn-default form-control" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+          </div>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="./food_request.php">Request Food</a></li>
+          <li><a href="./feed.php">NewsFeed</a></li>
+          <li><a href="./updateprof.php">Profile</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <br>
     <div class="row">
-    <div class="col-md-offset-1 col-md-6">
-<table class="table table-bordered">
-      <thead>
-        <tr><th>Person Requesting</th><th>Food Requested</th><th>Comments</th><th>Time</th><th>Status</th></tr>
-      </thead>
-      <tbody>
+      <div class="col-md-1"></div>
+      <div class="col-md-2 jumbotron">
+        <h3 class="text-center"><?php echo $_SESSION['username'];?></h3><br>
+        <div style="max-width:75%;margin-left:auto;margin-right:auto;background-color:white;">
+          <img src="IDONTKNOW" alt="Profile Picture">
+        </div>
+        <br>
+        Name: <?php echo $data[$_SESSION['username']]['fullname'];?><br>
+        Company: <?php echo $data[$_SESSION['username']]['company'];?><br>
+        Room: <?php echo $data[$_SESSION['username']]['room'];?><br>
+        Bio: <?php echo $data[$_SESSION['username']]['bio'];?><br>
+      </div>
+      <div class="col-md-8">
+        <div class="input-group"style="max-width:25%;">
+          <input type="text" class="form-control">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button">Search</button>
+          </span>
+        </div>
+
+    <h4>Current Requests:</h4>
+    <table class="table table-bordered" style="max-width:50%;margin-left:auto;margin-right:auto;">
+        <thead>
+          <tr><th>Person Requesting</th><th>Food Requested</th><th>Comments</th><th>Time</th><th>Status</th></tr>
+        </thead>
+        <tbody>
 
     <?php
 
@@ -104,5 +151,4 @@ function readRequests($fileName)
     ?>
     </tbody>
     </table>
-</div>
-</div>
+  </body>
