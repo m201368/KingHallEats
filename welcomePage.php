@@ -64,13 +64,13 @@
     <div class="col-md-4">
       <div class="jumbotron text-center">
         <h2 class="text-center">Sign Up</h4>
-        <form action="" id="form" method="POST" onsubmit="check()">
+        <form action="" id="form" method="POST" action="signup.php">
           <input type="text" class="form-control" name="names" style="max-width:50%;margin-left:auto;margin-right:auto;" placeholder="Name"><br>
           <input type="text" class="form-control" name="company" style="max-width:50%;margin-left:auto;margin-right:auto;" placeholder="Company"><br>
           <input type="text" class="form-control" name="room" style="max-width:50%;margin-left:auto;margin-right:auto;" placeholder="Room #"><br>
           <input type="text" class="form-control" name="user" style="max-width:50%;margin-left:auto;margin-right:auto;" placeholder="Username"><br>
           <input type="password" class="form-control" name="pass" style="max-width:50%;margin-left:auto;margin-right:auto;" placeholder="Password"><br>
-          <input type="password" class="form-control" name="allergy" style="max-width:50%;margin-left:auto;margin-right:auto;" placeholder="Allergies"><br> 
+          <input type="password" class="form-control" name="allergy" style="max-width:50%;margin-left:auto;margin-right:auto;" placeholder="Allergies"><br>
          <button type="submit" class="btn btn-default">Sign Up</button>
         </form>
        <br>
