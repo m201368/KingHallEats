@@ -25,3 +25,10 @@ h1, h4 {
 .jumbotron {
     border-radius: 6px;
 }
+
+p {
+  max-width:80%;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
+}
