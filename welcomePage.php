@@ -36,7 +36,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <a class="navbar-brand" href="./welcomePage.php">
-        <span class="glyphicon glyphicon-ice-lolly-tasted" aria-hidden="true"></span>
+        <span aria-hidden="true">King Hall Eats</span>
       </a>
       <ul class="nav navbar-nav">
         <li><a href="./contactus.php">Contact Us</a></li>

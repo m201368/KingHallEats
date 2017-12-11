@@ -20,9 +20,6 @@ function readRequests($fileName)
     return $request;
 }
 
-
-
-
 ?>
 
 <html>
