@@ -76,8 +76,6 @@
           Enjoy!
         </p>
         <br>
-        <br>
-        <br>
       </div>
     </div>
     <div class="col-md-4">
@@ -89,7 +87,7 @@
           <input type="text" class="form-control" name="room" style="max-width:50%;margin-left:auto;margin-right:auto;" placeholder="Room #"><br>
           <input type="text" class="form-control" name="user" style="max-width:50%;margin-left:auto;margin-right:auto;" placeholder="Username"><br>
           <input type="password" class="form-control" name="pass" style="max-width:50%;margin-left:auto;margin-right:auto;" placeholder="Password"><br>
-          <input type="password" class="form-control" name="allergy" style="max-width:50%;margin-left:auto;margin-right:auto;" placeholder="Allergies"><br>
+          <input type="text" class="form-control" name="allergy" style="max-width:50%;margin-left:auto;margin-right:auto;" placeholder="Allergies"><br>
          <button type="submit" class="btn btn-default">Sign Up</button>
         </form>
        <br>
