@@ -1,4 +1,5 @@
 <?php
+session_start();
 function readUsers($fileName){
   $array;
   $fp = fopen($fileName, 'r');   //open the file for reading
@@ -10,6 +11,8 @@ function readUsers($fileName){
     $array[$l[0]]['name'] = $l[2];
     $array[$l[0]]['company'] = $l[3];
     $array[$l[0]]['room'] = $l[4];
+    $array[$l[0]]['allergy'] = $l[5];
+    $array[$l[0]]['status'] = $l[6];
     $line = fgets($fp);
   }
   fclose($fp);                   //close the file
@@ -35,6 +38,7 @@ function readRequests($fileName){
     $array[$count]['comment'] = $l[2];
     $array[$count]['time'] = $l[3];
     $array[$count]['stat'] = $l[4];
+    $array[$count]['doneBy'] = $l[5];
     $line = fgets($fp);
     $count++;
   }
@@ -61,12 +65,15 @@ function showyourfriends($name){
 $array  = readUsers("users.txt");
 $user = $_POST["user"];
 $pass = $_POST["pass"];
+if(in_array($_SESSION["user"],$array)){
+  $user = $_SESSION["user"];
+}
 if(checkInfo($array)){
-  session_start();
   $_SESSION['user'] = $user;
 }
 else{
-  header("location: welcomePage.php?fail=yes");
+  $_SESSION['user'] = "";
+  header("location: welcomePage.php?");
 }
 
 ?>
@@ -143,6 +150,7 @@ else{
       Company: <?php echo $user;?><br>
       Room: <?php echo $array[$user]["company"];?><br>
       Bio: <?php echo $array[$user]["room"];?><br>
+      Allergies: <?php echo $array[$user]["allergy"];?><br>
     </div>
     <div class="col-md-9 text-center">
       <br>
@@ -151,8 +159,7 @@ else{
         $requests = readRequests("requests.txt");
         foreach ($requests as $key => $value) {
           if($requests[$key]["user"]==$user){
-            echo "Request: ".$requests[$key]["food"]." Comment: ".$requests[$key]["comment"]." Status: ".$requests[$key]["stat"]."<br>";
-          }
+             echo "Request: ".$requests[$key]["food"]." Comment: ".$requests[$key]["comment"]." Status: ".$requests[$key]["stat"]." Fulfilled By: ".$requests[$key]["doneBy"]."<br>";
         }
 
       ?>
