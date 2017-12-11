@@ -61,13 +61,13 @@
           King Hall Eats is a service provided by midshipman, for midshipman as a way to organize the delivery of food from the one and only King Hall up to your room.
         </p>
         <p style="font-size:12pt">
-          Designed by midshipmen, we understand the struggle of walking down to King Hall to pick up food. This service is a quick way of getting other people to pick up your food on the way.
+          Designed by midshipmen, King Hall Eats understands the struggle of walking down to King Hall to pick up food. This service is a quick way of getting other people to pick up your food on the way.
         </p>
         <p style="font-size:12pt">
           Simply submit a request and put how much you are willing to pay for the delivery in the comments.
         </p>
         <p style="font-size:12pt">
-          Wait for another midshipman looking to make some cash already on the way to King Hall to agree to deliver your food.
+          Wait for another midshipman looking to make some cash to agree to deliver your food.
         </p>
         <p style="font-size:12pt">
           Wait for your delivery.
