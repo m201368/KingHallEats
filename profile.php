@@ -137,6 +137,17 @@ else{
         </div>
       </form>
       <ul class="nav navbar-nav navbar-right">
+        <?php
+         if ($array[$_SESSION['user']]['accesslevel'] == 'admin') { ?>
+           <li class="dropdown">
+           <a class="dropdown-toggle" data-toggle="dropdown" href="">Admin
+           <span class="caret"></span></a>
+           <ul class="dropdown-menu">
+            <li><a href="./manage_users.php">Manage Users</a></li>
+            <li><a href="./stats.php">Statistics</a></li>
+           </ul>
+           </li>
+        <?php  } ?>
         <li><a href="./food_request.php">Request Food</a></li>
         <li><a href="./feed.php">NewsFeed</a></li>
         <li><a href="./updateprof.php">Profile</a></li>
