@@ -93,7 +93,7 @@ Last Edited: 28 OCT 2017
     $file = "Logs/requests.txt";
     if(file_exists($file)) {
       $fin = fopen($file, "a+") or die("you cant write to the file");
-      $order = "username; ".($_POST['sFood'])."; ".($_POST['com'])."; ".(time())."; incomplete;\n";
+      $order = $_SESSION['user'].";".($_POST['sFood']).";".($_POST['com']).";".(time()).";incomplete;nobody\n";
       echo fwrite($fin, $order);
       fclose($file);
       print "<b>Thanks for submitting a request!</b>";
