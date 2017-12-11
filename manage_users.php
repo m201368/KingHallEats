@@ -108,11 +108,7 @@
         }
       }
       $file = fopen("users.txt", 'w') or die("invalid logs");
-      foreach ($CSV as $line=>$val) {
-        if($val != "") {
-          fputcsv($file, $line);
-        }
-      }
+      write_csv("users.txt", $CSV, True, True, True, ";");
     }
     fclose($file);
     //give the admin options to create a user
