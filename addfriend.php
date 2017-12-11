@@ -32,19 +32,16 @@
   else{
     //add name, friend to friends.txt in each new line
     $file = fopen("friends.txt",'a');
-    if(isset($_POST['friend'])){
+    if("" != trim($_POST['friend'])){
       $data = $_SESSION['user'].",".$_POST['friend']."\n";
-      fwrite($file,$data);?>
-      <script type="text/javascript">
-      var x = document.getElementById("paragraph1");
-      x.innerHTML = "Thanks for adding a friend! Return to your <a href="profile.php"> profile page</a>.";
-      </script>
-      <?php
+      fwrite($file,$data);
+      $stuff = "Thanks for adding a friend! Return to your <a href='profile.php'> profile page</a>.";
+
       }
     }
 
 
-  // used the lines to make sure functions were working properly
+  //used the lines to make sure functions were working properly
   // $answer=showyourfriends($_POST['name']);
   //  echo"<pre>";
   //  print_r($_POST);
@@ -136,13 +133,14 @@
     </div>
     <div class="col-md-9">
       <p id="paragraph1">
-        Add friend!
+        <h1>Add a friend!</h1>
       </p>
       <form action="?" id="form" method="POST" onsubmit="check()">
         What is your friend's username?<br>
         <input type="text" name="friend"><br>
         <input type="submit" name="Add Friend">
       </form>
+      <?php echo $stuff;?>
     </div>
 </body>
 </html>
