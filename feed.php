@@ -17,6 +17,8 @@
       $array[$l[0]]['name'] = $l[2];
       $array[$l[0]]['company'] = $l[3];
       $array[$l[0]]['room'] = $l[4];
+      $array[$l[0]]['allergy'] = $l[5];
+      $array[$l[0]]['status'] = $l[6];
       $line = fgets($fp);
     }
     fclose($fp);                   //close the file
@@ -38,6 +40,7 @@
       $request[$count]['comment'] = $l[2];
       $request[$count]['time'] = $l[3];
       $request[$count]['stat'] = $l[4];
+      $array[$count]['doneBy'] = $l[5];
       $line = fgets($fp);
       $count++;
     }
@@ -69,6 +72,7 @@ function showyourfriends($name)
 
 
 $friends = showyourfriends($user);
+$requests = readRequests("requests.txt");
 
 ?>
 
@@ -96,6 +100,12 @@ $friends = showyourfriends($user);
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <link type="text/css" rel="stylesheet" href="default.css">
   </head>
+  <script type="text/javascript">
+    function updateRequests(user,time){
+      var line="deliver.php?user="+user+"&time="+time;
+      window.location.href = line;
+    }
+  </script>
   <body>
     <nav class="navbar navbar-custom">
       <div class="container-fluid">
@@ -157,22 +167,11 @@ $friends = showyourfriends($user);
           </thead>
           <tbody>
             <?php
-              $requests = readRequests("requests.txt");
-              // echo"<pre>";
-              // print_r($requests);
-              // echo"</pre>";
               for ($i=0; $i<sizeof($friends); $i++) {
                   $name=$friends[$i];
-
                   foreach ($requests as $key => $value) {
-                      // $requester=$requests[$key]["stat"];
-                      // $tester="incomplete";
-                      // echo $name." name<br>";
-                      // echo $requests[$key]["user"]," requester<br><br>";
-                      // echo strcmp($name,$requests[$key]["user"])." result of strcmp <br><br>";
-                      if (strcmp($name,$requests[$key]["user"])==1) {
-                        //<tr onclick=\"agreetodeliver()\">
-                          echo "<tr><td>".$requests[$key]["user"]."</td><td>".$requests[$key]["food"]."</td><td>".$requests[$key]["comment"]."</td></tr>";
+                      if (strcmp($name,$requests[$key]["user"])==1 && $requests[$key]["stat"]=="incomplete") {
+                          echo "<tr onclick=\"updateRequests('".$requests[$key]["user"]."','".$requests[$key]["time"]."')\"><td>".$requests[$key]["user"]."</td><td>".$requests[$key]["food"]."</td><td>".$requests[$key]["comment"]."</td></tr>";
                       }
                   }
               }
@@ -187,13 +186,8 @@ $friends = showyourfriends($user);
           </thead>
           <tbody>
             <?php
-               //$requests = readRequests("requests.txt");
-                foreach ($requests as $key => $value) {
-                  // echo $requests[$key]["food"]."  from key    ";
-                  //
-                  // echo "<br>".strcmp($requests[$key]["user"],$user)." result of strcmp<br>";
+               foreach ($requests as $key => $value) {
                     if (strcmp($user,$requests[$key]["user"])==0) {
-                      //echo "funny";
                         echo "<tr><td>".$requests[$key]["food"]."</td><td>".$requests[$key]["comment"]."</td><td>".$requests[$key]["stat"]."</td></tr>";
                     }
                 }
