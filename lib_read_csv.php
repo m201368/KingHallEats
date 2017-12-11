@@ -31,4 +31,26 @@
     return $table;
   }
 
+    function write_csv($filename, $data=array(), $withHeaders=True, $withLeftID=True, $leftID='', $withDelimiter=',') {
+    if ($withHeaders) {
+      $headers = get_csv_headers($filename);
+    }
+
+    if($fp = fopen($filename, 'w')) {
+      if ($withHeaders) {
+        fputcsv($fp, $headers, $withDelimiter);
+      }
+      foreach ($data as $row) {
+        if ($row[$headers[0]] != "") {
+          fputcsv($fp, $row, $withDelimiter);
+        }
+      }
+
+      fclose($fp);
+      return True;
+    } else {
+      return False;
+    }
+  }
+
  ?>
