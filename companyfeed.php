@@ -73,42 +73,58 @@ $array  = readUsers("users.txt");
 
   </head>
   <body>
-    <nav class="navbar navbar-custom">
-      <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
+   <nav class="navbar navbar-custom">
+<div class="container-fluid">
+<!-- Brand and toggle get grouped for better mobile display -->
+<div class="navbar-header">
+  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+</div>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <a class="navbar-brand" href="./welcomePage.php">
-          <span class="glyphicon glyphicon-ice-lolly-tasted" aria-hidden="true"></span>
-        </a>
-        <ul class="nav navbar-nav">
-          <li><a href="./contactus.php">Contact Us</a></li>
-        </ul>
-        <form class="navbar-form navbar-right" role="search">
-          <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search" name="q">
-              <div class="input-group-btn">
-                <button class="btn btn-default form-control" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-              </div>
-          </div>
-        </form>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="./food_request.php">Request Food</a></li>
-          <li><a href="./feed.php">NewsFeed</a></li>
-          <li><a href="./updateprof.php">Profile</a></li>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
+<!-- Collect the nav links, forms, and other content for toggling -->
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<a class="navbar-brand" href="./welcomePage.php">
+  <span class="glyphicon glyphicon-ice-lolly-tasted" aria-hidden="true"></span>
+</a>
+<ul class="nav navbar-nav">
+  <li><a href="./contactus.php">Contact Us</a></li>
+</ul>
+<form class="navbar-form navbar-right" action="logout.php">
+  <div class="input-group">
+      <button class="form-control btn btn-default" type="submit"><i class="glyphicon glyphicon-log-out"></i></button>
+  </div>
+</form>
+<form class="navbar-form navbar-right" role="search">
+  <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search" name="q">
+      <div class="input-group-btn">
+        <button class="btn btn-default form-control" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+      </div>
+  </div>
+</form>
+<ul class="nav navbar-nav navbar-right">
+  <?php
+   if ($array[$_SESSION['user']]['accesslevel'] == 'admin') { ?>
+     <li class="dropdown">
+     <a class="dropdown-toggle" data-toggle="dropdown" href="">Admin
+     <span class="caret"></span></a>
+     <ul class="dropdown-menu">
+      <li><a href="./manage_users.php">Manage Users</a></li>
+      <li><a href="./stats.php">Statistics</a></li>
+     </ul>
+     </li>
+  <?php  } ?>
+  <li><a href="./food_request.php">Request Food</a></li>
+  <li><a href="./feed.php">NewsFeed</a></li>
+  <li><a href="./updateprof.php">Profile</a></li>
+</ul>
+</div><!-- /.navbar-collapse -->
+</div><!-- /.container-fluid -->
+</nav>
     <br>
 
     <div class="row">
