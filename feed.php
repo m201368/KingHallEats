@@ -94,15 +94,64 @@ $friends = showyourfriends($user);
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
-
+    <link type="text/css" rel="stylesheet" href="default.css">
   </head>
   <body>
-    <h1><b><u>Welcome to your Status Feed </u></b></h1>
+    <nav class="navbar navbar-custom">
+      <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
 
-    <h3><b><u>Your Friend's Current Requests:</u></b></h3>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <a class="navbar-brand" href="./welcomePage.php">
+          <span class="glyphicon glyphicon-ice-lolly-tasted" aria-hidden="true"></span>
+        </a>
+        <ul class="nav navbar-nav">
+          <li><a href="./contactus.php">Contact Us</a></li>
+        </ul>
+        <form class="navbar-form navbar-right" role="search">
+          <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search" name="q">
+              <div class="input-group-btn">
+                <button class="btn btn-default form-control" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+              </div>
+          </div>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="./food_request.php">Request Food</a></li>
+          <li><a href="./feed.php">NewsFeed</a></li>
+          <li><a href="./updateprof.php">Profile</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <br>
     <div class="row">
-      <div class="col-md-offset-1 col-md-6">
-        <table class="table table-bordered">
+      <div class="col-md-1"></div>
+      <div class="col-md-2 jumbotron">
+        <h3 class="text-center"><?php echo $_SESSION['username'];?></h3><br>
+        <div style="max-width:75%;margin-left:auto;margin-right:auto;background-color:white;">
+          <img src="IDONTKNOW" alt="Profile Picture">
+        </div>
+        <br>
+        Name: <?php echo $data[$_SESSION['username']]['fullname'];?><br>
+        Company: <?php echo $data[$_SESSION['username']]['company'];?><br>
+        Room: <?php echo $data[$_SESSION['username']]['room'];?><br>
+        Bio: <?php echo $data[$_SESSION['username']]['bio'];?><br>
+      </div>
+      <div class="col-md-9">
+    <h2 class="text-center">Status Feed</h2>
+    <br>
+    <h3 class="text-center">Your Friend's Current Requests:</h3>
+        <table class="table table-bordered" style="max-width:75%;margin-left:auto;margin-right:auto;">
           <thead>
             <tr><th>Friend's name</th><th>Request</th><th>Comments</th></tr>
           </thead>
@@ -130,12 +179,9 @@ $friends = showyourfriends($user);
             ?>
           </tbody>
         </table>
-      </div>
-    </div>
-    <h3><b><u>Your Current Requests:</u></b></h3>
-    <div class="row">
-      <div class="col-md-offset-1 col-md-6">
-        <table class="table table-bordered">
+        <br><br>
+    <h3 class="text-center">Your Current Requests:</h3>
+        <table class="table table-bordered" style="max-width:75%;margin-left:auto;margin-right:auto;">
           <thead>
             <tr><th>Request</th><th>Comments</th><th>Status</th></tr>
           </thead>
@@ -147,12 +193,10 @@ $friends = showyourfriends($user);
                   //
                   // echo "<br>".strcmp($requests[$key]["user"],$user)." result of strcmp<br>";
                     if (strcmp($user,$requests[$key]["user"])==0) {
-
                       //echo "funny";
                         echo "<tr><td>".$requests[$key]["food"]."</td><td>".$requests[$key]["comment"]."</td><td>".$requests[$key]["stat"]."</td></tr>";
                     }
                 }
-
             ?>
           </tbody>
         </table>
