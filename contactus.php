@@ -19,6 +19,15 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <link type="text/css" rel="stylesheet" href="default.css">
+
+    <?php
+      if(isset($_POST['name'])){
+        $mailHeaders = "From: " . $_POST['email'] . "\r\n";
+        mail("m190354@usna.edu",$_POST['name'],$_POST['feedback'],$mailHeaders);
+        unset($_POST);
+      }
+    ?>
+
 </head>
 <body>
   <?php if(isset($_SESSION['user'])) {?>
@@ -98,7 +107,7 @@
         <div class="jumbotron text-center">
           <h2>We want to hear from you!</h2>
           <h4>Fill out the form below with questions, comments, concerns and<br> we will get back to you ASAP.</h4><br>
-          <form action="mailto:m190354@usna.edu" enctype="text/plain">
+          <form action="?" method="post" id="daForm>
             <div class="form-group">
               <input type="text" name="name" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" placeholder="Name">
               <br><input type="email" name="email" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" placeholder="Email">
