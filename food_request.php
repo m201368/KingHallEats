@@ -82,10 +82,10 @@ Last Edited: 28 OCT 2017
         <img src="IDONTKNOW" alt="Profile Picture">
       </div>
       <br>
-      Name: <?php echo $data[$_SESSION['username']]['fullname'];?><br>
-      Company: <?php echo $data[$_SESSION['username']]['company'];?><br>
-      Room: <?php echo $data[$_SESSION['username']]['room'];?><br>
-      Bio: <?php echo $data[$_SESSION['username']]['bio'];?><br>
+      Name: <?php echo $users[$_SESSION['user']]['name'];?><br>
+      Company: <?php echo $users[$_SESSION['user']]['company'];?><br>
+      Room: <?php echo $users[$_SESSION['user']]['room'];?><br>
+      Allergies: <?php echo $users[$_SESSION['user']]['allergy'];?><br>
     </div>
   <?php
   if (isset($_POST['sFood'])) {
