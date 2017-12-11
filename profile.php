@@ -13,6 +13,7 @@ function readUsers($fileName){
     $array[$l[0]]['room'] = $l[4];
     $array[$l[0]]['allergy'] = $l[5];
     $array[$l[0]]['status'] = $l[6];
+    $array[$l[0]]['favfood'] = $l[7];
     $line = fgets($fp);
   }
   fclose($fp);                   //close the file
