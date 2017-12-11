@@ -97,7 +97,7 @@
         <br><br><br>
         <div class="jumbotron text-center">
           <h2>We want to hear from you!</h2>
-          <h4>Fill out the form below with questions, comments, concerns and<br> we will get back to you ASAP.</h4><br>
+          <h4>Fill out the form below with questions, comments, concerns and<br> we will get back to you soon!</h4><br>
           <form action="mailto:m190354@usna.edu" enctype="text/plain">
             <div class="form-group">
               <input type="text" name="name" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" placeholder="Name">
