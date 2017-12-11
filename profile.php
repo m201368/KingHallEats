@@ -148,10 +148,10 @@ else{
       </div>
       <br>
       Name: <?php echo $array[$user]["name"];?><br>
-      Company: <?php echo $user;?><br>
-      Room: <?php echo $array[$user]["company"];?><br>
-      Bio: <?php echo $array[$user]["room"];?><br>
+      Company: <?php echo $array[$user]["company"];?><br>
+      Room: <?php echo $array[$user]["room"];?><br>
       Allergies: <?php echo $array[$user]["allergy"];?><br>
+      Favorite Food: <?php echo $array[$user]["favfood"];?><br>
     </div>
     <div class="col-md-9 text-center">
       <br>
