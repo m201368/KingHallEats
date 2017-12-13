@@ -2,7 +2,6 @@
 <html>
 
 <?php
-  session_start();
   function readUsers($fileName){
     $array;
     $fp = fopen($fileName, 'r');   //open the file for reading
@@ -38,7 +37,7 @@
     $file = fopen("users.txt",'a');
     $data = $_POST['user'].",".sha1($_POST['pass']).",".$_POST['names'].",".$_POST['company'].",".$_POST['room'].",".$_POST["allergy"].",user,".$_POST["favfood"]."\n";
     fwrite($file,$data);
-    $_SESSION["user"] = $_POST["user"];
+    $_COOKIE["user"] = $_POST["user"];
     header("location: welcomePage.php");
   }
 
@@ -114,7 +113,7 @@
       </form>
     </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
-  </nav>
+  </nav>COOKIE
 
   <div class="row">
     <div class="col-md-4"></div>
