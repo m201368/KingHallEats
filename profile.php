@@ -152,11 +152,11 @@ if(isset($_POST['pass']) && (!isset($array[$_COOKIE['user']]) || sha1($_POST['pa
     <div class="col-md-1"></div>
     <div class="col-md-2 jumbotron">
       <h3 class="text-center"><?php echo $_COOKIE['user'];?></h3><br>
-      Name: <?php echo $array[$user]["name"];?><br>
-      Company: <?php echo $array[$user]["company"];?><br>
-      Room: <?php echo $array[$user]["room"];?><br>
-      Allergies: <?php echo $array[$user]["allergy"];?><br>
-      Favorite Food: <?php echo $array[$user]["favfood"];?><br>
+      Name: <?php echo $array[$_COOKIE['user']]["name"];?><br>
+      Company: <?php echo $array[$_COOKIE['user']]["company"];?><br>
+      Room: <?php echo $array[$_COOKIE['user']]["room"];?><br>
+      Allergies: <?php echo $array[$_COOKIE['user']]["allergy"];?><br>
+      Favorite Food: <?php echo $array[$_COOKIE['user']]["favfood"];?><br>
     </div>
     <div class="col-md-9 text-center">
       <br>

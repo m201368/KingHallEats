@@ -109,9 +109,6 @@
     <div class="col-md-1"></div>
     <div class="col-md-2 jumbotron">
       <h3 class="text-center"><?php echo $_COOKIE['user'];?></h3><br>
-      <div style="max-width:75%;margin-left:auto;margin-right:auto;background-color:white;">
-        <img src="IDONTKNOW" alt="Profile Picture">
-      </div>
       <br>
       Name: <?php echo $users[$_COOKIE['user']]['name'];?><br>
       Company: <?php echo $users[$_COOKIE['user']]['company'];?><br>
