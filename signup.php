@@ -23,8 +23,6 @@
     return $array;
   }
 
-?>
-<?php
   $users = readUsers("users.txt");
   // echo"<pre>";
   // print_r($users);
