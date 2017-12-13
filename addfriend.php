@@ -1,25 +1,9 @@
-<!DOCTYPE html>
-
-<!--
- +Description: PHP file that allows users to contact the staff for feedback.
- +Created by : Lani Davis
- +Created on : 5 NOV 2017
- +Last Modified by: Ben Birney
- +Last Modified on: 12 DEC 2017
- +Modified by: Ben Birney, Lani Davis, Chris Daves
- +-->
-
 <html>
 <?php
-
-//Check if the cookie 'user' has been set, if it has not, calls the header function.
+  session_start();
   if(!isset($_COOKIE['user'])) {
     header("Location: welcomePage.php");
   }
-
-  // readUsers function takes in a file name.
-  // It opens the file passed in by reference and breaks it into an easily navigatable associative array.
-  // readUsers returns an array of current users.
   function readUsers($fileName){
     $array;
     $fp = fopen($fileName, 'r');   //open the file for reading
@@ -41,8 +25,7 @@
   }
   $array = readUsers("users.txt");
   $user = $_COOKIE["user"];
-
-  // showyourfriends function returns an array with all friends of a given name
+  //returns array of all friends of person with inputed name from friends file
   function showyourfriends($name){
     $array;
    $fp = fopen("friends.txt", 'r');   //open the file for reading
@@ -60,13 +43,22 @@
    return $array;
   }
 
-    //add friend to friends.txt in each new line
+    //add name, friend to friends.txt in each new line
     $file = fopen("friends.txt",'a');
-    if("" != trim($_POST['friend'])){
+    if("" != trim($_POST['friend']) && isset($array[$_POST["friend"]])){
       $data = $_COOKIE['user'].",".$_POST['friend']."\n";
       fwrite($file,$data);
       $stuff = "Thanks for adding a friend! Return to your <a href='profile.php'> profile page</a>.";
     }
+    elseif(isset($_POST["friend"])) {
+      $stuff= $_POST["friend"]." does not exist. Imaginary friends are not real friends.";
+      unset($_POST["friend"]);
+    }
+    else{
+      $stuff = "";
+    }
+
+
 ?>
 <head>
   <meta charset="UTF-8">
@@ -76,7 +68,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="http://grfx.cstv.com/graphics/school-logos/navy-lg.png">
   <title>Add a friend</title>
-  <!-- Bootstrap -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!--[if lt IE 9]>
    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -85,10 +76,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>
   <link type="text/css" rel="stylesheet" href="default.css">
-
   <script type="text/javascript">
-
-  // check function verifies that all of the inputs have been filled.
+    //make sure all boxes have been set
     function check(){
       var x = document.getElementById("form");
       var go = true;
@@ -102,7 +91,6 @@
     }
   </script>
 </head>
-
 <body>
   <nav class="navbar navbar-custom">
     <div class="container-fluid">
@@ -165,7 +153,10 @@
         <input type="text" name="friend"><br>
         <input type="submit" name="Add Friend">
       </form>
-      <?php echo $stuff;?>
+      <?php
+        echo $stuff;
+        $stuff="";
+      ?>
     </div>
 </body>
 </html>
