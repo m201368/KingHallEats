@@ -127,7 +127,7 @@
           <input type="text" name="name"class="form-control" placeholder="Full Name"  style="max-width:40%;margin-left:auto;margin-right:auto;">
           <br><input type="text" name="company" class="form-control" placeholder="Company"  style="max-width:40%;margin-left:auto;margin-right:auto;">
           <br><input type="text" name="room" class="form-control" placeholder="Room Number"  style="max-width:40%;margin-left:auto;margin-right:auto;">
-          <br><input type="text" name="pass" class="form-control" placeholder="Password"  style="max-width:40%;margin-left:auto;margin-right:auto;">
+          <br><input type="password" name="pass" class="form-control" placeholder="Password"  style="max-width:40%;margin-left:auto;margin-right:auto;">
           <br><input type="text" name="allergy" class="form-control" placeholder="Allergies"  style="max-width:40%;margin-left:auto;margin-right:auto;">
           <br><input type="text" name="favfood" class="form-control" placeholder="Favorite Food"  style="max-width:40%;margin-left:auto;margin-right:auto;">
           <br><button type="submit" class="btn btn-default">Update Profile</button>
