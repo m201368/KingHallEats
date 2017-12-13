@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<?php session_start();?>
 <html>
 <!--
  +Description: PHP file that welcomes user to King Hall Eats website. Provides links to every page availabe on the website, including login page.
@@ -24,7 +23,7 @@
     <script src="login.js"></script>
 </head>
 <body>
-  <?php if(isset($_SESSION['user'])) { ?>
+  <?php if(!isset($_COOKIE['user'])) { ?>
   <nav class="navbar navbar-custom navbar-fixed-top">
     <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -91,7 +90,7 @@
       </form>
       <ul class="nav navbar-nav navbar-right">
         <?php
-         if ($array[$_SESSION['user']]['accesslevel'] == 'admin') { ?>
+         if ($array[$_COOKIE['user']]['accesslevel'] == 'admin') { ?>
            <li class="dropdown">
            <a class="dropdown-toggle" data-toggle="dropdown" href="">Admin
            <span class="caret"></span></a>
