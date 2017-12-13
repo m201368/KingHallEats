@@ -39,7 +39,8 @@
     fclose($fp);                   //close the file
     return $array;
   }
-  $users = readUsers("users.txt");
+  $array = readUsers("users.txt");
+  $user = $_COOKIE["user"];
 
   // showyourfriends function returns an array with all friends of a given name
   function showyourfriends($name){
