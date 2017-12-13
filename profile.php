@@ -63,8 +63,7 @@ function showyourfriends($name){
 }
 
 $array  = readUsers("users.txt");
-$user = $_POST['user'];
-$pass = $_POST['pass'];
+$user = $_COOKIE["user"];
 
 if(isset($_POST['pass']) && (!isset($array[$_COOKIE['user']]) || sha1($_POST['pass']) != $array[$_POST['user']]['pass'])){
   require_once('logout.php');
