@@ -1,5 +1,4 @@
 <?php
-  session_start();
   function readRequests($fileName)
   {
     $request;
@@ -27,7 +26,7 @@
     foreach ($requests as $key => $value) {
       $file = fopen("requests.txt","a");
       if($requests[$key]["user"]==$user && $requests[$key]["time"]==$time){
-        $order = $requests[$key]['user'].";".$requests[$key]['food'].";".$requests[$key]["comment"].";".$time.";complete;".$_SESSION["user"]."\n";
+        $order = $requests[$key]['user'].";".$requests[$key]['food'].";".$requests[$key]["comment"].";".$time.";complete;".$_COOKIE["user"]."\n";
         fwrite($file, $order);
         fclose($file);
       }

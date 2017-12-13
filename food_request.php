@@ -9,7 +9,6 @@ Last Edited: 28 OCT 2017
 <html>
 
 <?php
-  session_start();
   function readUsers($fileName){
     $array;
     $fp = fopen($fileName, 'r');   //open the file for reading
@@ -30,7 +29,7 @@ Last Edited: 28 OCT 2017
     return $array;
   }
   $users = readUsers("users.txt");
-  if(!isset($_SESSION['user'])) {
+  if(!isset($_COOKIE['user'])) {
     ?><script type="text/javascript">
       document.location = "welcomePage.php";
     </script><?php
@@ -102,11 +101,12 @@ Last Edited: 28 OCT 2017
   <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-2 jumbotron">
-      Name: <?php echo $users[$_COOKIE['user']]['name'];?><br>
-      Company: <?php echo $users[$_COOKIE['user']]['company'];?><br>
-      Room: <?php echo $users[$_COOKIE['user']]['room'];?><br>
-      Allergies: <?php echo $users[$_COOKIE['user']]['allergy'];?><br>
-      Favorite Food: <?php echo $users[$_COOKIE['user']]['favfood'];?><br>
+       <h3 class="text-center"><?php echo $_COOKIE['user'];?></h3><br>
+      Name: <?php echo $array[$user]["name"];?><br>
+      Company: <?php echo $array[$user]["company"];?><br>
+      Room: <?php echo $array[$user]["room"];?><br>
+      Allergies: <?php echo $array[$user]["allergy"];?><br>
+      Favorite Food: <?php echo $array[$user]["favfood"];?><br>
     </div>
   <?php
   if (isset($_POST['sFood'])) {
@@ -114,7 +114,7 @@ Last Edited: 28 OCT 2017
     $file = "requests.txt";
     if(file_exists($file)) {
       $fin = fopen($file, "a+") or die("you cant write to the file");
-      $order = $_SESSION['user'].";".($_POST['sFood']).";".($_POST['com']).";".(time()).";incomplete;nobody\n";
+      $order = $_COOKIE['user'].";".($_POST['sFood']).";".($_POST['com']).";".(time()).";incomplete;nobody\n";
       fwrite($fin, $order);
       fclose($file);
       print "<b>Thanks for submitting a request!</b>";

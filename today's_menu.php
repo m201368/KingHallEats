@@ -1,5 +1,4 @@
 <?php
-  session_start();
   // Load in our csv library from previous lab
   require_once("lib_read_csv.php");
 

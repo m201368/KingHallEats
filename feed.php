@@ -1,7 +1,6 @@
 <?php
-  session_start();
-  if(isset($_SESSION["user"])) {
-    $user = $_SESSION["user"];
+  if(isset($_COOKIE["user"])) {
+    $user = $_COOKIE["user"];
   } else {
     header("location: welcomePage.php?fail=yes");
   }
@@ -26,7 +25,7 @@
     return $array;
   }
   $array  = readUsers("users.txt");
-  $user = $_SESSION["user"];
+  $user = $_COOKIE["user"];
 
   function readRequests($fileName)
   {
@@ -153,15 +152,17 @@ $requests = readRequests("requests.txt");
     <div class="row">
       <div class="col-md-1"></div>
       <div class="col-md-2 jumbotron">
-        <h3 class="text-center"><?php echo $_SESSION['username'];?></h3><br>
+        <h3 class="text-center"><?php echo $_COOKIE['user'];?></h3><br>
         <div style="max-width:75%;margin-left:auto;margin-right:auto;background-color:white;">
           <img src="IDONTKNOW" alt="Profile Picture">
         </div>
         <br>
-        Name: <?php echo $data[$_SESSION['username']]['fullname'];?><br>
-        Company: <?php echo $data[$_SESSION['username']]['company'];?><br>
-        Room: <?php echo $data[$_SESSION['username']]['room'];?><br>
-        Bio: <?php echo $data[$_SESSION['username']]['bio'];?><br>
+         <h3 class="text-center"><?php echo $_COOKIE['user'];?></h3><br>
+      Name: <?php echo $array[$user]["name"];?><br>
+      Company: <?php echo $array[$user]["company"];?><br>
+      Room: <?php echo $array[$user]["room"];?><br>
+      Allergies: <?php echo $array[$user]["allergy"];?><br>
+      Favorite Food: <?php echo $array[$user]["favfood"];?><br>
       </div>
       <div class="col-md-9">
     <h2 class="text-center">Status Feed</h2>

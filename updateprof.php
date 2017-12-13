@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <?php
-  session_start();
   function readUsers($fileName){
     $array;
     $fp = fopen($fileName, 'r');   //open the file for reading
@@ -32,12 +31,12 @@
   $users = readUsers("users.txt");
 
   if(isset($_POST["name"])){
-    $users[$_SESSION["user"]]["pass"] = sha1($_POST["pass"]);
-    $users[$_SESSION["user"]]["name"] = $_POST["name"];
-    $users[$_SESSION["user"]]["company"] = $_POST["company"];
-    $users[$_SESSION["user"]]["room"] = $_POST["room"];
-    $users[$_SESSION["user"]]["allergy"] = $_POST["allergy"];
-    $users[$_SESSION["user"]]["favfood"] = $_POST["favfood"]."\n";
+    $users[$_COOKIE["user"]]["pass"] = sha1($_POST["pass"]);
+    $users[$_COOKIE["user"]]["name"] = $_POST["name"];
+    $users[$_COOKIE["user"]]["company"] = $_POST["company"];
+    $users[$_COOKIE["user"]]["room"] = $_POST["room"];
+    $users[$_COOKIE["user"]]["allergy"] = $_POST["allergy"];
+    $users[$_COOKIE["user"]]["favfood"] = $_POST["favfood"]."\n";
     write_txt("users.txt",$users);
     header("location: profile.php");
   }
@@ -109,7 +108,7 @@
   <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-2 jumbotron">
-      <h3 class="text-center"><?php echo $_SESSION['username'];?></h3><br>
+      <h3 class="text-center"><?php echo $_COOKIE['user'];?></h3><br>
       <div style="max-width:75%;margin-left:auto;margin-right:auto;background-color:white;">
         <img src="IDONTKNOW" alt="Profile Picture">
       </div>
