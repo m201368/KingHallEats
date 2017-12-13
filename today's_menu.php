@@ -56,7 +56,7 @@
                 <button class="form-control btn btn-default" type="submit"><i class="glyphicon glyphicon-log-out"></i></button>
             </div>
           </form>
-          <form class="navbar-form navbar-right" role="search">
+          <form class="navbar-form navbar-right" role="search" action="search.php">
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Search" name="q">
                 <div class="input-group-btn">
