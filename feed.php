@@ -157,12 +157,12 @@ $requests = readRequests("requests.txt");
           <img src="IDONTKNOW" alt="Profile Picture">
         </div>
         <br>
-        Name: <?php echo $users[$_COOKIE['user']]['name'];?><br>
-        Company: <?php echo $users[$_COOKIE['user']]['company'];?><br>
-        Room: <?php echo $users[$_COOKIE['user']]['room'];?><br>
-        Allergies: <?php echo $users[$_COOKIE['user']]['allergy'];?><br>
-        Favorite Food: <?php echo $users[$_COOKIE['user']]['favfood'];?><br>
-
+         <h3 class="text-center"><?php echo $_COOKIE['user'];?></h3><br>
+      Name: <?php echo $array[$user]["name"];?><br>
+      Company: <?php echo $array[$user]["company"];?><br>
+      Room: <?php echo $array[$user]["room"];?><br>
+      Allergies: <?php echo $array[$user]["allergy"];?><br>
+      Favorite Food: <?php echo $array[$user]["favfood"];?><br>
       </div>
       <div class="col-md-9">
     <h2 class="text-center">Status Feed</h2>
