@@ -21,6 +21,7 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <link type="text/css" rel="stylesheet" href="default.css">
+    <script src="login.js"></script>
 </head>
 <body>
   <?php if(isset($_SESSION['user'])) { ?>
@@ -44,7 +45,7 @@
       <ul class="nav navbar-nav">
         <li><a href="./contactus.php">Contact Us</a></li>
       </ul>
-      <form class="navbar-form navbar-right" method="POST" action="profile.php">
+      <form class="navbar-form navbar-right" method="POST" action="profile.php" onsubmit="return login();">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Username" name="user">
           <input type="password" class="form-control" placeholder="Password" name="pass">
@@ -80,7 +81,7 @@
             <button class="form-control btn btn-default" type="submit"><i class="glyphicon glyphicon-log-out"></i></button>
         </div>
       </form>
-      <form class="navbar-form navbar-right" role="search">
+      <form class="navbar-form navbar-right" role="search" action="search.php">
         <div class="input-group">
             <input type="text" class="form-control" placeholder="Search" name="q">
             <div class="input-group-btn">
