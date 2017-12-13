@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<?php session_start(); ?>
 <html>
 <!--
  +Description: PHP file that shows an admin stats of website
@@ -58,7 +57,7 @@
 </form>
 <ul class="nav navbar-nav navbar-right">
   <?php
-   if ($array[$_SESSION['user']]['accesslevel'] == 'admin') { ?>
+   if ($array[$_COOKIE['user']]['accesslevel'] == 'admin') { ?>
      <li class="dropdown">
      <a class="dropdown-toggle" data-toggle="dropdown" href="">Admin
      <span class="caret"></span></a>
@@ -79,15 +78,15 @@
   <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-2 jumbotron">
-      <h3 class="text-center"><?php echo $_SESSION['username'];?></h3><br>
+      <h3 class="text-center"><?php echo $_COOKIE['user'];?></h3><br>
       <div style="max-width:75%;margin-left:auto;margin-right:auto;background-color:white;">
         <img src="IDONTKNOW" alt="Profile Picture">
       </div>
       <br>
-      Name: <?php echo $data[$_SESSION['username']]['fullname'];?><br>
-      Company: <?php echo $data[$_SESSION['username']]['company'];?><br>
-      Room: <?php echo $data[$_SESSION['username']]['room'];?><br>
-      Bio: <?php echo $data[$_SESSION['username']]['bio'];?><br>
+      Name: <?php echo $data[$_COOKIE['user']]['fullname'];?><br>
+      Company: <?php echo $data[$_COOKIE['user']]['company'];?><br>
+      Room: <?php echo $data[$_COOKIE['user']]['room'];?><br>
+      Bio: <?php echo $data[$_COOKIE['user']]['bio'];?><br>
     </div>
     <div class="col-md-8">
       <?php
