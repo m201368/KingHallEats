@@ -1,16 +1,12 @@
 <!Doctype HTML>
 <?php
-  //starts session, loads in fxns, checks if the user is currently logged in
-  //if not, they're directed to the login page
-  //if they're logged in but not an admin, it tells them they aren't allowed in
-  session_start();
   require_once("lib_read_csv.php");
-  if (!isset($_SESSION['user'])) {
+  if (!isset($_COOKIE['user'])) {
     header("Location: signup.php");
     exit();
   } else {
     $CSV = read_csv("users.txt");
-    if ($CSV[$_SESSION['user']]['accesslevel'] != 'admin') {
+    if ($CSV[$_COOKIE['user']]['accesslevel'] != 'admin') {
       echo "<b>You're not allowed on this page</b>";
       exit();
     }
@@ -95,7 +91,7 @@
   </nav>
   <?php
   //creates user given username, password, full name, and access level from form
-  if (isset($_SESSION['user'])) {
+  if (isset($_COOKIE['user'])) {
     $file = fopen("users.txt", 'a+') or die("invalid logs");
     if (isset($_POST['addUser'])) {
       $entry = $_POST['addUser'] .", ".($_POST['pass']).", ".$_POST['name'].", ".$_POST['company'].", ".$_POST['room'].", ".$_POST['access']."\n";
