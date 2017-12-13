@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<?php session_start(); ?>
 <html>
 <!--
  +Description: PHP file that shows an admin stats of website

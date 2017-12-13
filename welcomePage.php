@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<?php session_start();?>
 <html>
 <!--
  +Description: PHP file that welcomes user to King Hall Eats website. Provides links to every page availabe on the website, including login page.

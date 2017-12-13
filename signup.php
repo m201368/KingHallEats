@@ -2,6 +2,7 @@
 <html>
 
 <?php
+  session_start();
   function readUsers($fileName){
     $array;
     $fp = fopen($fileName, 'r');   //open the file for reading
@@ -39,7 +40,6 @@
     $file = fopen("users.txt",'a');
     $data = $_POST['user'].",".sha1($_POST['pass']).",".$_POST['names'].",".$_POST['company'].",".$_POST['room'].",".$_POST["allergy"].",user,".$_POST["favfood"]."\n";
     fwrite($file,$data);
-    session_start();
     $_SESSION["user"] = $_POST["user"];
     header("location: welcomePage.php");
   }
