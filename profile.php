@@ -64,8 +64,8 @@ function showyourfriends($name){
 }
 
 $array  = readUsers("users.txt");
-$user = $_POST["user"];
-$pass = $_POST["pass"];
+$user = $_POST['user'];
+$pass = $_POST['pass'];
 
 if(!isset($array[$_COOKIE['user']]) || sha1($_POST['pass']) != $array[$_POST['user']]['pass']){
   require_once('logout.php');
@@ -78,7 +78,7 @@ if(!isset($array[$_COOKIE['user']]) || sha1($_POST['pass']) != $array[$_POST['us
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title><?php echo $user; ?> Profile Page</title>
+    <title><?php echo $user."'s"; ?> Profile Page</title>
 
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -132,7 +132,7 @@ if(!isset($array[$_COOKIE['user']]) || sha1($_POST['pass']) != $array[$_POST['us
       </form>
       <ul class="nav navbar-nav navbar-right">
         <?php
-         if ($array[$_SESSION['user']]['accesslevel'] == 'admin') { ?>
+         if ($array[$_COOKIE['user']]['accesslevel'] == 'admin') { ?>
            <li class="dropdown">
            <a class="dropdown-toggle" data-toggle="dropdown" href="">Admin
            <span class="caret"></span></a>
@@ -152,11 +152,7 @@ if(!isset($array[$_COOKIE['user']]) || sha1($_POST['pass']) != $array[$_POST['us
     <br>
     <div class="col-md-1"></div>
     <div class="col-md-2 jumbotron">
-      <h3 class="text-center"><?php echo $_SESSION['username'];?></h3><br>
-      <div style="max-width:75%;margin-left:auto;margin-right:auto;background-color:white;">
-        <img src="IDONTKNOW" alt="Profile Picture">
-      </div>
-      <br>
+      <h3 class="text-center"><?php echo $_COOKIE['user'];?></h3><br>
       Name: <?php echo $array[$user]["name"];?><br>
       Company: <?php echo $array[$user]["company"];?><br>
       Room: <?php echo $array[$user]["room"];?><br>

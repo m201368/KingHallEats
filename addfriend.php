@@ -1,14 +1,10 @@
 <html>
 <?php
   session_start();
-  if(!isset($_SESSION['user'])) {
-    ?><script type="text/javascript">
-      document.location = "welcomePage.php";
-    </script><?php
+  if(!isset($_COOKIE['user'])) {
+    header("Location: welcomePage.php");
   }
-?>
 
-<?php
   //returns array of all friends of person with inputed name from friends file
   function showyourfriends($name){
     $array;
@@ -27,18 +23,14 @@
    return $array;
   }
 
-
-  if($_SESSION['user']==''){echo"Let's add some friends! Login!";}
-  else{
     //add name, friend to friends.txt in each new line
     $file = fopen("friends.txt",'a');
     if("" != trim($_POST['friend'])){
-      $data = $_SESSION['user'].",".$_POST['friend']."\n";
+      $data = $_COOKIE['user'].",".$_POST['friend']."\n";
       fwrite($file,$data);
       $stuff = "Thanks for adding a friend! Return to your <a href='profile.php'> profile page</a>.";
-
-      }
     }
+
 
 
   //used the lines to make sure functions were working properly
@@ -117,7 +109,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="./food_request.php">Request Food</a></li>
         <li><a href="./feed.php">NewsFeed</a></li>
-        <li><a href=".profile.php">Profile</a></li>
+        <li><a href="./profile.php">Profile</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -126,15 +118,15 @@
   <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-2 jumbotron">
-      <h3 class="text-center"><?php echo $_SESSION['username'];?></h3><br>
+      <h3 class="text-center"><?php echo $_COOKIE['username'];?></h3><br>
       <div style="max-width:75%;margin-left:auto;margin-right:auto;background-color:white;">
         <img src="IDONTKNOW" alt="Profile Picture">
       </div>
       <br>
-      Name: <?php echo $data[$_SESSION['username']]['fullname'];?><br>
-      Company: <?php echo $data[$_SESSION['username']]['company'];?><br>
-      Room: <?php echo $data[$_SESSION['username']]['room'];?><br>
-      Bio: <?php echo $data[$_SESSION['username']]['bio'];?><br>
+      Name: <?php echo $data[$_COOKIE['username']]['fullname'];?><br>
+      Company: <?php echo $data[$_COOKIE['username']]['company'];?><br>
+      Room: <?php echo $data[$_COOKIE['username']]['room'];?><br>
+      Bio: <?php echo $data[$_COOKIE['username']]['bio'];?><br>
     </div>
     <div class="col-md-9">
       <p id="paragraph1">
