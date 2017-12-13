@@ -37,7 +37,7 @@
     $users[$_SESSION["user"]]["company"] = $_POST["company"];
     $users[$_SESSION["user"]]["room"] = $_POST["room"];
     $users[$_SESSION["user"]]["allergy"] = $_POST["allergy"];
-    $users[$_SESSION["user"]]["favfood"] = $_POST["favfood"];
+    $users[$_SESSION["user"]]["favfood"] = $_POST["favfood"]."\n";
     write_txt("users.txt",$users);
     header("location: profile.php");
   }
