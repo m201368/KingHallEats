@@ -1,6 +1,4 @@
 <?php
-  session_start();
-  unset($_COOKIE['user']);
-  setcookie('user', '', time()-86400);
+  setcookie('user', null, -1, "/");
   header("Location: welcomePage.php");
 ?>
