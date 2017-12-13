@@ -131,16 +131,11 @@ $array  = readUsers("users.txt");
       <div class="col-md-1"></div>
       <div class="col-md-2 jumbotron">
         <h3 class="text-center"><?php echo $_COOKIE['user'];?></h3><br>
-        <div style="max-width:75%;margin-left:auto;margin-right:auto;background-color:white;">
-          <img src="IDONTKNOW" alt="Profile Picture">
-        </div>
-        <br>
-         <h3 class="text-center"><?php echo $_COOKIE['user'];?></h3><br>
-      Name: <?php echo $array[$user]["name"];?><br>
-      Company: <?php echo $array[$user]["company"];?><br>
-      Room: <?php echo $array[$user]["room"];?><br>
-      Allergies: <?php echo $array[$user]["allergy"];?><br>
-      Favorite Food: <?php echo $array[$user]["favfood"];?><br>
+        Name: <?php echo $array[$user]["name"];?><br>
+        Company: <?php echo $array[$user]["company"];?><br>
+        Room: <?php echo $array[$user]["room"];?><br>
+        Allergies: <?php echo $array[$user]["allergy"];?><br>
+        Favorite Food: <?php echo $array[$user]["favfood"];?><br>
       </div>
       <div class="col-md-9">
     <h2 class="text-center">Status Feed</h2>
