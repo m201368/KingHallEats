@@ -1,4 +1,18 @@
 <!DOCTYPE html>
+
+<?php
+require_once("lib_read_csv.php");
+if (!isset($_COOKIE['user'])) {
+  header("Location: signup.php");
+  exit();
+} else {
+  $CSV = read_csv("users.txt");
+  if ($CSV[$_COOKIE['user']]['accesslevel'] != 'admin') {
+    header("Location: profile.php");
+  }
+}
+?>
+
 <html>
 <!--
  +Description: PHP file that shows an admin stats of website

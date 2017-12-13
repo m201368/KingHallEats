@@ -7,8 +7,7 @@
   } else {
     $CSV = read_csv("users.txt");
     if ($CSV[$_COOKIE['user']]['accesslevel'] != 'admin') {
-      echo "<b>You're not allowed on this page</b>";
-      exit();
+      header("Location: profile.php");
     }
   }
 ?>
