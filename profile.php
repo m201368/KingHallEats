@@ -156,7 +156,7 @@ if(isset($_POST['pass']) && (!isset($array[$_COOKIE['user']]) || sha1($_POST['pa
       Room: <?php echo $array[$_COOKIE['user']]["room"];?><br>
       Allergies: <?php echo $array[$_COOKIE['user']]["allergy"];?><br>
       Favorite Food: <?php echo $array[$_COOKIE['user']]["favfood"];?><br>
-      <br><a class="text-center" href="./updateprof.php">Update your Profile!</a>
+      <br><span class="text-center"><a href="./updateprof.php">Update your Profile!</a></span>
     </div>
     <div class="col-md-9 text-center">
       <br>
