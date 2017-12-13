@@ -130,8 +130,8 @@
         <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="company" placeholder="Company"><br>
         <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="room" placeholder="Room #"><br>
         <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="user" placeholder="Username"><br>
-        <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="pass" id="pass" placeholder="Password"><br>
-        <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="pass1" id="pass1" placeholder="Re-enter Password"><br>
+        <input type="password" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="pass" id="pass" placeholder="Password"><br>
+        <input type="password" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="pass1" id="pass1" placeholder="Re-enter Password"><br>
         <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="allergy" placeholder="Allergies"><br>
         <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="favfood" placeholder="Favorite Food"><br>
         <button type="submit" class="btn btn-default">Create Profile</button>
