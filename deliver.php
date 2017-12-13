@@ -12,7 +12,7 @@
       $request[$count]['comment'] = $l[2];
       $request[$count]['time'] = $l[3];
       $request[$count]['stat'] = $l[4];
-      $array[$count]['doneBy'] = $l[5];
+      $request[$count]['doneBy'] = $l[5];
       $line = fgets($fp);
       $count++;
     }
