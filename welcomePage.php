@@ -142,7 +142,7 @@
     <div class="col-md-4">
       <div class="jumbotron text-center">
         <h2 class="text-center">Sign Up</h4>
-        <form action="" id="form" method="POST" action="signup.php?">
+        <form id="form" method="POST" action="signup.php?">
          <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="names" placeholder="Name"><br>
          <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="company" placeholder="Company"><br>
          <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="room" placeholder="Room #"><br>
