@@ -66,15 +66,9 @@ function showyourfriends($name){
 $array  = readUsers("users.txt");
 $user = $_POST["user"];
 $pass = $_POST["pass"];
-if(in_array($_SESSION["user"],$array)){
-  $user = $_SESSION["user"];
-}
-if(checkInfo($array)){
-  $_SESSION['user'] = $user;
-}
-else{
-  $_SESSION['user'] = "";
-  header("location: welcomePage.php?");
+
+if(!isset($array[$_COOKIE['user']]) || sha1($_POST['pass']) != $array[$_POST['user']]['pass']){
+  require_once('logout.php');
 }
 
 ?>
