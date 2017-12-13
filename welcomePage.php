@@ -44,9 +44,9 @@
       <ul class="nav navbar-nav">
         <li><a href="./contactus.php">Contact Us</a></li>
       </ul>
-      <form class="navbar-form navbar-right" method="POST" action="profile.php" onsubmit="return login();">
+      <form class="navbar-form navbar-right" method="POST" action="profile.php" onsubmit="return login(document.getElementById('user').value)">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Username" name="user">
+          <input type="text" class="form-control" placeholder="Username" name="user" id="user">
           <input type="password" class="form-control" placeholder="Password" name="pass">
         </div>
         <button type="submit" class="btn btn-default">Log In</button>
