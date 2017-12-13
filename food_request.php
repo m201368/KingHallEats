@@ -9,7 +9,6 @@ Last Edited: 28 OCT 2017
 <html>
 
 <?php
-  session_start();
   function readUsers($fileName){
     $array;
     $fp = fopen($fileName, 'r');   //open the file for reading
@@ -30,7 +29,7 @@ Last Edited: 28 OCT 2017
     return $array;
   }
   $users = readUsers("users.txt");
-  if(!isset($_SESSION['user'])) {
+  if(!isset($_COOKIE['user'])) {
     ?><script type="text/javascript">
       document.location = "welcomePage.php";
     </script><?php
@@ -115,7 +114,7 @@ Last Edited: 28 OCT 2017
     $file = "requests.txt";
     if(file_exists($file)) {
       $fin = fopen($file, "a+") or die("you cant write to the file");
-      $order = $_SESSION['user'].";".($_POST['sFood']).";".($_POST['com']).";".(time()).";incomplete;nobody\n";
+      $order = $_COOKIE['user'].";".($_POST['sFood']).";".($_POST['com']).";".(time()).";incomplete;nobody\n";
       fwrite($fin, $order);
       fclose($file);
       print "<b>Thanks for submitting a request!</b>";
