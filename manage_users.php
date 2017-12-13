@@ -64,6 +64,11 @@
       <ul class="nav navbar-nav">
         <li><a href="./contactus.php">Contact Us</a></li>
       </ul>
+      <form class="navbar-form navbar-right" action="logout.php">
+        <div class="input-group">
+            <button class="form-control btn btn-default" type="submit"><i class="glyphicon glyphicon-log-out"></i></button>
+        </div>
+      </form>
       <form class="navbar-form navbar-right" role="search">
         <div class="input-group">
             <input type="text" class="form-control" placeholder="Search" name="q">
