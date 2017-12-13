@@ -115,11 +115,11 @@ Last Edited: 28 OCT 2017
   <?php
   if (isset($_POST['sFood'])) {
     ?> <div class="col-md-9 text-center"><?php
-    $file = "Logs/requests.txt";
+    $file = "requests.txt";
     if(file_exists($file)) {
       $fin = fopen($file, "a+") or die("you cant write to the file");
       $order = $_SESSION['user'].";".($_POST['sFood']).";".($_POST['com']).";".(time()).";incomplete;nobody\n";
-      echo fwrite($fin, $order);
+      fwrite($fin, $order);
       fclose($file);
       print "<b>Thanks for submitting a request!</b>";
     } else {
