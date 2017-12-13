@@ -123,10 +123,11 @@
         <img src="IDONTKNOW" alt="Profile Picture">
       </div>
       <br>
-      Name: <?php echo $data[$_COOKIE['username']]['fullname'];?><br>
-      Company: <?php echo $data[$_COOKIE['username']]['company'];?><br>
-      Room: <?php echo $data[$_COOKIE['username']]['room'];?><br>
-      Bio: <?php echo $data[$_COOKIE['username']]['bio'];?><br>
+      Name: <?php echo $users[$_COOKIE['user']]['name'];?><br>
+      Company: <?php echo $users[$_COOKIE['user']]['company'];?><br>
+      Room: <?php echo $users[$_COOKIE['user']]['room'];?><br>
+      Allergies: <?php echo $users[$_COOKIE['user']]['allergy'];?><br>
+      Favorite Food: <?php echo $users[$_COOKIE['user']]['favfood'];?><br>
     </div>
     <div class="col-md-9">
       <p id="paragraph1">

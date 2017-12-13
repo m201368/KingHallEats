@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html>
 <!--
  +Description: PHP file that allows users to contact the staff for feedback.
  +Created by : Sarah Barkley
  +Created on : 18 NOV 2017
- +Last Edited: 19 NOV 2017
+ +Last Modified by: Sarah Barkley
+ +Last Modified on: 12 DEC 2017
+ +Modified by: Ben Birney, Lani Davis, Chris Daves
  +-->
-<head>
+
+ <html>
+ <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,6 +24,9 @@
     <link type="text/css" rel="stylesheet" href="default.css">
 
     <?php
+
+    // Checks if the name field has been filled.
+    // If it has, sends email to account m190354@usna.edu with feedback provided by the user.
       if(isset($_POST['name'])){
         $mailHeaders = "From: " . $_POST['email'] . "\r\n";
         mail("m190354@usna.edu",$_POST['name'],$_POST['feedback'],$mailHeaders);
@@ -30,6 +36,9 @@
 
 </head>
 <body>
+
+  <!-- If the user is logged in, provides a separate navigation bar.
+    The navigation bar includes links to logout, profile, newsfeed, request food, and a search bar.-->
   <?php if(isset($_SESSION['user'])) {?>
     <nav class="navbar navbar-custom">
       <div class="container-fluid">
@@ -105,6 +114,11 @@
     </nav>
   <?php } ?>
 
+<!--
+  This is a form requesting that users send feedback through a given format.
+  The user's name, email, and feedback is asked from this form.
+  If no name is given, an email will not be sent.
+ -->
     <div class="row text-center">
       <div class="col-md-4"></div>
       <div class="col-md-4">
@@ -112,7 +126,7 @@
         <div class="jumbotron text-center">
           <h2>We want to hear from you!</h2>
           <h4>Fill out the form below with questions, comments, concerns and<br> we will get back to you ASAP.</h4><br>
-          <form action="?" method="post" id="daForm>
+          <form action="?" method="post" id="daForm">
             <div class="form-group">
               <input type="text" name="name" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" placeholder="Name">
               <br><input type="email" name="email" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" placeholder="Email">
@@ -123,6 +137,11 @@
       </div>
       </div>
     </div>
+
+    <!--
+      Team bios are provided below.
+      These outline hobbies, majors, class, and intended service selection.
+     -->
     <div class="row">
       <div class="col-md-3">
         <div class="jumbotron text-center">
@@ -168,7 +187,7 @@
         <h4>Interface Manager</h4>
         <p style="font-size:12pt">
           I am currently a Second Class at the United States Naval Academy<br>
-          I am a Information Technology major.<br>
+          I am an Information Technology major.<br>
           Hobbies: I'm a classical and jazz violinist and music has been a part of my life as long as I can remember. If I'm not practicing, you'll find me reading or writing.<br>
           I hope to service select Marine Aviation.
         </p>
