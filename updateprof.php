@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <?php
-  COOKIE_start();
   function readUsers($fileName){
     $array;
     $fp = fopen($fileName, 'r');   //open the file for reading
