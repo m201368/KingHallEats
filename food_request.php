@@ -28,7 +28,7 @@ Last Edited: 28 OCT 2017
     fclose($fp);                   //close the file
     return $array;
   }
-  $users = readUsers("users.txt");
+  $array = readUsers("users.txt");
   if(!isset($_COOKIE['user'])) {
     ?><script type="text/javascript">
       document.location = "welcomePage.php";
