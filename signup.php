@@ -2,6 +2,7 @@
 <html>
 
 <?php
+  session_start();
   function readUsers($fileName){
     $array;
     $fp = fopen($fileName, 'r');   //open the file for reading
@@ -22,8 +23,6 @@
     return $array;
   }
 
-?>
-<?php
   $users = readUsers("users.txt");
   // echo"<pre>";
   // print_r($users);
@@ -39,7 +38,6 @@
     $file = fopen("users.txt",'a');
     $data = $_POST['user'].",".sha1($_POST['pass']).",".$_POST['names'].",".$_POST['company'].",".$_POST['room'].",".$_POST["allergy"].",user,".$_POST["favfood"]."\n";
     fwrite($file,$data);
-    session_start();
     $_SESSION["user"] = $_POST["user"];
     header("location: welcomePage.php");
   }
@@ -130,8 +128,8 @@
         <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="company" placeholder="Company"><br>
         <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="room" placeholder="Room #"><br>
         <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="user" placeholder="Username"><br>
-        <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="pass" id="pass" placeholder="Password"><br>
-        <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="pass1" id="pass1" placeholder="Re-enter Password"><br>
+        <input type="password" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="pass" id="pass" placeholder="Password"><br>
+        <input type="password" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="pass1" id="pass1" placeholder="Re-enter Password"><br>
         <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="allergy" placeholder="Allergies"><br>
         <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="favfood" placeholder="Favorite Food"><br>
         <button type="submit" class="btn btn-default">Create Profile</button>

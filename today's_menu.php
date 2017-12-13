@@ -1,5 +1,5 @@
 <?php
-
+  session_start();
   // Load in our csv library from previous lab
   require_once("lib_read_csv.php");
 
@@ -52,6 +52,11 @@
           <ul class="nav navbar-nav">
             <li><a href="./contactus.php">Contact Us</a></li>
           </ul>
+          <form class="navbar-form navbar-right" action="logout.php">
+            <div class="input-group">
+                <button class="form-control btn btn-default" type="submit"><i class="glyphicon glyphicon-log-out"></i></button>
+            </div>
+          </form>
           <form class="navbar-form navbar-right" role="search">
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Search" name="q">
@@ -63,7 +68,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li><a href="./food_request.php">Request Food</a></li>
             <li><a href="./feed.php">NewsFeed</a></li>
-            <li><a href="./updateprof.php">Profile</a></li>
+            <li><a href="./profile.php">Profile</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
