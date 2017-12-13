@@ -83,7 +83,7 @@
         </li>
         <li><a href="./food_request.php">Request Food</a></li>
         <li><a href="./feed.php">NewsFeed</a></li>
-        <li><a href="./updateprof.php">Profile</a></li>
+        <li><a href="./profile.php">Profile</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
