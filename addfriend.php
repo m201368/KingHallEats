@@ -4,7 +4,26 @@
   if(!isset($_COOKIE['user'])) {
     header("Location: welcomePage.php");
   }
-
+  function readUsers($fileName){
+    $array;
+    $fp = fopen($fileName, 'r');   //open the file for reading
+    $line = fgets($fp);          // read lines
+    while( !feof($fp) ) {
+      $l = explode(",", $line);
+      $array[$l[0]]['user'] = $l[0];
+      $array[$l[0]]['pass'] = $l[1];
+      $array[$l[0]]['name'] = $l[2];
+      $array[$l[0]]['company'] = $l[3];
+      $array[$l[0]]['room'] = $l[4];
+      $array[$l[0]]['allergy'] = $l[5];
+      $array[$l[0]]['status'] = $l[6];
+      $array[$l[0]]['favfood'] = $l[7];
+      $line = fgets($fp);
+    }
+    fclose($fp);                   //close the file
+    return $array;
+  }
+  $users = readUsers("users.txt");
   //returns array of all friends of person with inputed name from friends file
   function showyourfriends($name){
     $array;
@@ -118,11 +137,6 @@
   <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-2 jumbotron">
-      <h3 class="text-center"><?php echo $_COOKIE['username'];?></h3><br>
-      <div style="max-width:75%;margin-left:auto;margin-right:auto;background-color:white;">
-        <img src="IDONTKNOW" alt="Profile Picture">
-      </div>
-      <br>
       Name: <?php echo $users[$_COOKIE['user']]['name'];?><br>
       Company: <?php echo $users[$_COOKIE['user']]['company'];?><br>
       Room: <?php echo $users[$_COOKIE['user']]['room'];?><br>

@@ -114,11 +114,11 @@
         <img src="IDONTKNOW" alt="Profile Picture">
       </div>
       <br>
-      Name: <?php echo $users[$_SESSION['user']]['name'];?><br>
-      Company: <?php echo $users[$_SESSION['user']]['company'];?><br>
-      Room: <?php echo $users[$_SESSION['user']]['room'];?><br>
-      Allergies: <?php echo $users[$_SESSION['user']]['allergy'];?><br>
-      Favorite Food: <?php echo $users[$_SESSION['user']]['favfood'];?><br>
+      Name: <?php echo $users[$_COOKIE['user']]['name'];?><br>
+      Company: <?php echo $users[$_COOKIE['user']]['company'];?><br>
+      Room: <?php echo $users[$_COOKIE['user']]['room'];?><br>
+      Allergies: <?php echo $users[$_COOKIE['user']]['allergy'];?><br>
+      Favorite Food: <?php echo $users[$_COOKIE['user']]['favfood'];?><br>
     </div>
     <div class="col-md-9 text-center">
       <h3>Update Profile:</h3><br>
