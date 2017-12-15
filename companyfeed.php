@@ -1,5 +1,5 @@
 <!--
- +Description: PHP file that allows users to contact the staff for feedback.
+ +Description: PHP file that allows users to filter feeds by company #.
  +Created by : Lani Davis
  +Created on : 27 NOV 2017
  +Last Modified by: Lani Davis
