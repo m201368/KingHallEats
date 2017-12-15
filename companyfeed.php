@@ -1,4 +1,16 @@
+<!--
+ +Description: PHP file that allows users to contact the staff for feedback.
+ +Created by : Lani Davis
+ +Created on : 27 NOV 2017
+ +Last Modified by: Lani Davis
+ +Last Modified on: 15 DEC 2017
+ +Modified by: Sarah Barkley, Ben Birney, Chris Daves
+ +-->
+
 <?php
+
+// function reads food requests submitted from given file $fileName
+// returns an array of those requests
 function readRequests($fileName)
 {
     $request;
@@ -19,6 +31,9 @@ function readRequests($fileName)
     //close the file
     return $request;
 }
+
+// function: reads information from a given file containing all user data
+// outputs that data in an associative array
 function readUsers($fileName)
   {
     $array;
@@ -68,6 +83,8 @@ $array  = readUsers("users.txt");
     <script src="bootstrap/js/bootstrap.min.js"></script>
   </head>
   <script type="text/javascript">
+
+  // function: class a php script found in deliverc.php to update the given requests
     function updateRequests(user,time){
       var line="deliverc.php?user="+user+"&time="+time;
       window.location.href = line;
@@ -195,22 +212,13 @@ $array  = readUsers("users.txt");
 
     <?php
     $requests = readRequests("requests.txt");
-    // echo"<pre>";
-    // print_r($requests);
-    // echo"</pre>";
     $company = $_POST["selectex"];
 
 
 
         foreach ($requests as $key => $value) {
-            // $requester=$requests[$key]["stat"];
-            // $tester="incomplete";
-            // echo $name." name<br>";
-            // echo $requests[$key]["user"]," requester<br><br>";
-            //echo strcmp($name,$requests[$key]["user"])." result of strcmp <br><br>";
             echo $requests[$key]["company"];
             if ($_POST["selectex"] == $array[$requests[$key]["user"]]["company"] && $requests[$key]["stat"]=="incomplete") {
-              //<tr onclick=\"agreetodeliver()\">
                 echo "<tr onclick=\"updateRequests('".$requests[$key]["user"]."','".$requests[$key]["time"]."')\"><td>".$requests[$key]["user"]."</td><td>".$requests[$key]["food"]."</td><td>".$requests[$key]["comment"]."</td><td>".$requests[$key]["time"]."</td></tr>";
             }
         }
