@@ -152,7 +152,7 @@ function showyourfriends($name)
       </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-    <br><br>
+    <br><br><br>
 
     <div class="row">
       <div class="col-md-1"></div>
