@@ -107,47 +107,7 @@ function readUsers($fileName){
     </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
-  <?php
-  //creates user given username, password, full name, and access level from form
-  if (isset($_COOKIE['user'])) {
-    $file = fopen("users.txt", 'a+') or die("invalid logs");
-    if (isset($_POST['addUser'])) {
-      $entry = $_POST['addUser'] .", ".($_POST['pass']).", ".$_POST['name'].", ".$_POST['company'].", ".$_POST['room'].", ".$_POST['access']."\n";
-      fwrite($file, $entry);
-      print "<b>User Successfully Created!</b>";
-    }
-    if (isset($_POST['removeUser'])) {
-      foreach($CSV as $user) {
-        if ($user == $_POST['removeUser']) {
-          foreach ($user as $userData) {
-            $userData = "";
-          }
-        } else if ($user == "end") {
-          echo "The user you wanted to remove doesn't exist!";
-        }
-      }
-      $file = fopen("users.txt", 'w') or die("invalid logs");
-      write_csv("users.txt", $CSV, True, True, True, ";");
-    }
 
-    if ($_POST['row_delete'] != "") {
-        $CSV = read_csv($_POST['file_name']);
-        $headers = get_csv_headers($_POST['file_name']);
-
-        foreach ($CSV as &$row) {
-          if ($_POST['row_delete'] == $row[$headers[0]]) {
-            for ($i=0;$i<sizeof($headers);$i++) {
-              if($_POST['col_delete'] == $headers[$i]) {
-                $row[$headers[$i]] = $_POST['new_val'];
-              }
-            }
-          }
-        }
-      }
-
-    fclose($file);
-    //give the admin options to create a user
-  } else { ?>
     <form method='Post' action='?'>
       <div class="row">
         <div class="col-md-6 text-center">
@@ -181,19 +141,7 @@ function readUsers($fileName){
     <div class="row">
       <div class="col-md-4"></div>
       <div class="col-md-4">
-        <br>
-        <?php }
-        $CSV = read_csv("info.csv");
-        print "<table class=\"table table-striped\"><thead><tr><th>Username</th><th>Password</th><th>Full Name</th><th>Access Level</th></tr></thead><tbody>";
-        foreach ($CSV as $key) {
-          print "<tr>";
-          foreach ($key as $key2 => $value) {
-            print "<td>$value</td>";
-          }
-          print "</tr>";
-        }
-        print "</tbody></table>";
-        ?>
+
       </div>
       <div class="col-md-4"></div>
     </div>

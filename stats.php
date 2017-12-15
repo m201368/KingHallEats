@@ -93,14 +93,10 @@ if (!isset($_COOKIE['user'])) {
     <div class="col-md-1"></div>
     <div class="col-md-2 jumbotron">
       <h3 class="text-center"><?php echo $_COOKIE['user'];?></h3><br>
-      <div style="max-width:75%;margin-left:auto;margin-right:auto;background-color:white;">
-        <img src="IDONTKNOW" alt="Profile Picture">
-      </div>
-      <br>
-      Name: <?php echo $data[$_COOKIE['user']]['fullname'];?><br>
-      Company: <?php echo $data[$_COOKIE['user']]['company'];?><br>
-      Room: <?php echo $data[$_COOKIE['user']]['room'];?><br>
-      Bio: <?php echo $data[$_COOKIE['user']]['bio'];?><br>
+      Name: <?php echo $CSV[$_COOKIE['user']]['fullname'];?><br>
+      Company: <?php echo $CSV[$_COOKIE['user']]['company'];?><br>
+      Room: <?php echo $CSV[$_COOKIE['user']]['room'];?><br>
+      Bio: <?php echo $CSV[$_COOKIE['user']]['bio'];?><br>
     </div>
     <div class="col-md-8">
       <?php
@@ -123,7 +119,7 @@ if (!isset($_COOKIE['user'])) {
         fclose($fp);                   //close the file
         return $array;
       }
-      
+
         function readRequests($fileName){
           $array;
           $fp = fopen($fileName, 'r');   //open the file for reading
@@ -142,7 +138,6 @@ if (!isset($_COOKIE['user'])) {
           fclose($fp);                   //close the file
           return $array;
         }
-        $users = readUsers("users.txt");
         $requests = readRequests("requests.txt");
         $deliveries = 0;
         foreach ($requests as $key) {
