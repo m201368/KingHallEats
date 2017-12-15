@@ -149,7 +149,7 @@ $array  = readUsers("users.txt");
       <div class="col-md-9">
     <h2 class="text-center">Company Feed</h2>
 
-    <form class="form" method='post' action="" >
+    <form class="form" method='post' action="?" >
     <label for='search'>Customize by Company</label>
     <select name="selectex" class="form-control" style="max-width:10%">
       <option value="1">1</option>
