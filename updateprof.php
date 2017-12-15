@@ -123,7 +123,7 @@
           <input type="text" name="name"class="form-control" placeholder="Name" value="<?php echo $users[$_COOKIE['user']]['name'];?>"  style="max-width:40%;margin-left:auto;margin-right:auto;">
           <br><input type="text" name="company" class="form-control" placeholder="Company" value="<?php echo $users[$_COOKIE['user']]['company'];?>" style="max-width:40%;margin-left:auto;margin-right:auto;">
           <br><input type="text" name="room" class="form-control" placeholder="Room Number" value="<?php echo $users[$_COOKIE['user']]['room'];?>"  style="max-width:40%;margin-left:auto;margin-right:auto;">
-          <br><input type="password" name="pass" class="form-control" placeholder="Password" value="<?php echo $users[$_COOKIE['user']]['pass'];?>" style="max-width:40%;margin-left:auto;margin-right:auto;">
+          <br><input type="password" name="pass" class="form-control" placeholder="Password" style="max-width:40%;margin-left:auto;margin-right:auto;">
           <br><input type="text" name="allergy" class="form-control" placeholder="Allergies" value="<?php echo $users[$_COOKIE['user']]['allergy'];?>" style="max-width:40%;margin-left:auto;margin-right:auto;">
           <br><input type="text" name="favfood" class="form-control" placeholder="Favorite Food" value="<?php echo $users[$_COOKIE['user']]['favfood'];?>" style="max-width:40%;margin-left:auto;margin-right:auto;">
           <br><button type="submit" class="btn btn-default">Update Profile</button>
