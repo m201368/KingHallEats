@@ -67,6 +67,12 @@ $array  = readUsers("users.txt");
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
   </head>
+  <script type="text/javascript">
+    function updateRequests(user,time){
+      var line="deliverc.php?user="+user+"&time="+time;
+      window.location.href = line;
+    }
+  </script>
   <body>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -101,9 +107,9 @@ $array  = readUsers("users.txt");
       <button class="form-control btn btn-default" type="submit"><i class="glyphicon glyphicon-log-out"></i></button>
   </div>
 </form>
-<form method="post" class="navbar-form navbar-right" role="search" action="search.php">
+<form class="navbar-form navbar-right" role="search" action="search.php">
   <div class="input-group">
-      <input type="text" class="form-control" placeholder="Search" name="search">
+      <input type="text" class="form-control" placeholder="Search" name="q">
       <div class="input-group-btn">
         <button class="btn btn-default form-control" type="submit"><i class="glyphicon glyphicon-search"></i></button>
       </div>
@@ -111,7 +117,7 @@ $array  = readUsers("users.txt");
 </form>
 <ul class="nav navbar-nav navbar-right">
   <?php
-   if ($array[$_COOKIE['user']]['status'] == 'admin') { ?>
+   if ($array[$_COOKIE['user']]['accesslevel'] == 'admin') { ?>
      <li class="dropdown">
      <a class="dropdown-toggle" data-toggle="dropdown" href="">Admin
      <span class="caret"></span></a>
@@ -211,7 +217,7 @@ foreach ($array as $key => $value) {
             //echo strcmp($name,$requests[$key]["user"])." result of strcmp <br><br>";
             if (strcmp($name,$requests[$key]["user"])==0) {
               //<tr onclick=\"agreetodeliver()\">
-                echo "<tr><td>".$requests[$key]["user"]."</td><td>".$requests[$key]["food"]."</td><td>".$requests[$key]["comment"]."</td><td>".$requests[$key]["time"]."</td></tr>";
+                echo "<tr onclick=\"updateRequests('".$requests[$key]["user"]."','".$requests[$key]["time"]."')\"><td>".$requests[$key]["user"]."</td><td>".$requests[$key]["food"]."</td><td>".$requests[$key]["comment"]."</td><td>".$requests[$key]["time"]."</td></tr>";
             }
         }
     }
