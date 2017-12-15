@@ -114,7 +114,7 @@ function readRequests($fileName){
 </form>
 <ul class="nav navbar-nav navbar-right">
   <?php
-   if ($array[$_COOKIE['user']]['accesslevel'] == 'admin') { ?>
+   if ($array[$_COOKIE['user']]['status'] == 'admin') { ?>
      <li class="dropdown">
      <a class="dropdown-toggle" data-toggle="dropdown" href="">Admin
      <span class="caret"></span></a>

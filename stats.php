@@ -7,7 +7,7 @@ if (!isset($_COOKIE['user'])) {
   exit();
 } else {
   $CSV = read_csv("users.txt");
-  if ($CSV[$_COOKIE['user']]['accesslevel'] != 'admin') {
+  if ($CSV[$_COOKIE['user']]['status'] != 'admin') {
     header("Location: profile.php");
   }
 }
@@ -71,7 +71,7 @@ if (!isset($_COOKIE['user'])) {
 </form>
 <ul class="nav navbar-nav navbar-right">
   <?php
-   if ($array[$_COOKIE['user']]['accesslevel'] == 'admin') { ?>
+   if ($array[$_COOKIE['user']]['status'] == 'admin') { ?>
      <li class="dropdown">
      <a class="dropdown-toggle" data-toggle="dropdown" href="">Admin
      <span class="caret"></span></a>

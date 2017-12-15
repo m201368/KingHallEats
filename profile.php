@@ -130,7 +130,7 @@ if(isset($_POST['pass']) && (!isset($array[$_COOKIE['user']]) || sha1($_POST['pa
       </form>
       <ul class="nav navbar-nav navbar-right">
         <?php
-         if ($array[$_COOKIE['user']]['accesslevel'] == 'admin') { ?>
+         if ($array[$_COOKIE['user']]['status'] == 'admin') { ?>
            <li class="dropdown">
            <a class="dropdown-toggle" data-toggle="dropdown" href="">Admin
            <span class="caret"></span></a>

@@ -6,7 +6,7 @@
     exit();
   } else {
     $CSV = read_csv("users.txt");
-    if ($CSV[$_COOKIE['user']]['accesslevel'] != 'admin') {
+    if ($CSV[$_COOKIE['user']]['status'] != 'admin') {
       header("Location: profile.php");
     }
   }
