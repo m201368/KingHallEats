@@ -1,1 +1,1 @@
-Boss,1dc043bb8eb5646851ff808477bb5d3573739f1c,DaBoss,1000,4201,weakness,user,Human Souls
+Boss,1dc043bb8eb5646851ff808477bb5d3573739f1c,DaBoss,1000,4201,weakness,admin,Human Souls
