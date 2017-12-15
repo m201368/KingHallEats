@@ -135,6 +135,9 @@ Last Edited: 28 OCT 2017
     ?></div><?php
   } else { ?>
     <div class="col-md-9 text-center">
+      <div class="text-center">
+          <a class="btn btn-primary" href="./today's_menu.php" role="button" style="margin-left:auto;margin-right:auto;">Today's Menu</a>
+        </div>
       <h2>Request Food</h2>
       <form method='Post' action='?'>
         <select id="cat" style="max-width:50%;margin-left:auto;margin-right:auto;" class="form-control" onchange="specificRequest()">
