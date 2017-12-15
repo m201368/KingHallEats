@@ -1,45 +1,24 @@
 <?php
-function readUsers($fileName){
-    $array;
-    $fp = fopen($fileName, 'r');   //open the file for reading
-    $line = fgets($fp);          // read lines
-    while( !feof($fp) ) {
-      $l = explode(",", $line);
-      $array[$l[0]]['user'] = $l[0];
-      $array[$l[0]]['pass'] = $l[1];
-      $array[$l[0]]['name'] = $l[2];
-      $array[$l[0]]['company'] = $l[3];
-      $array[$l[0]]['room'] = $l[4];
-      $array[$l[0]]['allergy'] = $l[5];
-      $array[$l[0]]['status'] = $l[6];
-      $array[$l[0]]['favfood'] = $l[7];
-      $line = fgets($fp);
-    }
-    fclose($fp);                   //close the file
-    return $array;
+
+function readRequests($fileName){
+  $array;
+  $fp = fopen($fileName, 'r');   //open the file for reading
+  $line = fgets($fp);          // read lines
+  $count = 0;
+  while( !feof($fp) ) {
+    $l = explode(";", $line);
+    $array[$count]['user'] = $l[0];
+    $array[$count]['food'] = $l[1];
+    $array[$count]['comment'] = $l[2];
+    $array[$count]['time'] = $l[3];
+    $array[$count]['stat'] = $l[4];
+    $array[$count]['doneBy'] = $l[5];
+    $line = fgets($fp);
+    $count++;
   }
-  $array = readUsers("users.txt");
-function readRequests($fileName)
-  {
-    $request;
-    $fp = fopen($fileName, 'r');   //open the file for reading
-    $line = fgets($fp);          // read lines
-    $count = 0;
-    while (!feof($fp)) {
-      $l = explode(";", $line);
-      $request[$count]['user'] = $l[0];
-      $request[$count]['food'] = $l[1];
-      $request[$count]['comment'] = $l[2];
-      $request[$count]['time'] = $l[3];
-      $request[$count]['stat'] = $l[4];
-      $array[$count]['doneBy'] = $l[5];
-      $line = fgets($fp);
-      $count++;
-    }
-    fclose($fp);
-    //close the file
-    return $request;
-  }
+  fclose($fp);                   //close the file
+  return $array;
+}
 
 ?>
 
@@ -155,14 +134,18 @@ function readRequests($fileName)
         <tbody>
 
     <?php
-
-      $requests = readRequests("requests.txt");
-
+  $requests = readRequests("requests.txt");
+      // echo"<pre>";
+      // print_r($requests);
+      // print_r($_POST);
+      // echo"</pre>";
         foreach ($requests as $key => $value) {
+
           if($_POST['search']==""){
           $requester=$requests[$key]["stat"];
           $tester="incomplete";
-          if (strpos($requester, $tester)== true) {
+
+          if (strpos($requester, $tester)== 0) {
 
                 echo "<tr><td>".$requests[$key]["user"]."</td><td>".$requests[$key]["food"]."</td><td>".$requests[$key]["comment"]."</td><td>".$requests[$key]["time"]."</td><td>".$requests[$key]["stat"]."</td></tr>";
         }
@@ -172,8 +155,15 @@ function readRequests($fileName)
         $user=$requests[$key]["user"];
         $food=$requests[$key]["food"];
         $comment=$requests[$key]["comment"];
+        $search=$_POST['search'];
+        $user=strtolower($user);
+        $food=strtolower($food);
+        $comment=strtolower($comment);
+        $search=strtolower($search);
 
-        if (strpos($requester, $tester)== true && (strpos($user,$_POST['search'])!==FALSE || strpos($food,$_POST['search'])!==FALSE || strpos($comment,$_POST['search'])!==FALSE )) {
+        // echo $user."   user  \n";
+        // echo $search."   search  \n";
+        if (strpos($requester, $tester)== 0 && (strpos($user,$search)!==FALSE || strpos($food,$search)!==FALSE || strpos($comment,$search)!==FALSE )) {
 
               echo "<tr><td>".$requests[$key]["user"]."</td><td>".$requests[$key]["food"]."</td><td>".$requests[$key]["comment"]."</td><td>".$requests[$key]["time"]."</td><td>".$requests[$key]["stat"]."</td></tr>";
       }
