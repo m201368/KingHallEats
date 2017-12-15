@@ -85,7 +85,7 @@ Last Edited: 28 OCT 2017
         <div class="input-group">
             <input type="text" class="form-control" placeholder="Search" name="search">
             <div class="input-group-btn">
-              <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+              <button class="btn btn-default form-control" type="submit"><i class="glyphicon glyphicon-search"></i></button>
             </div>
         </div>
       </form>
