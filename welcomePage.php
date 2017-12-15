@@ -96,11 +96,7 @@
       </a>
       <ul class="nav navbar-nav">
         <li><a href="./contactus.php">Contact Us</a></li>
-      </ul>/ Load in our csv library from previous lab
-  require_once("lib_read_csv.php");
-
-  // read in our schedules
-  $data = read_csv("menu.csv");
+      </ul>
       <form class="navbar-form navbar-right" action="logout.php">
         <div class="input-group">
             <button class="form-control btn btn-default" type="submit"><i class="glyphicon glyphicon-log-out"></i></button>

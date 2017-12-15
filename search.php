@@ -170,7 +170,7 @@ function readRequests($fileName){
 
           if($_POST['search']==""){
           $requester=$requests[$key]["stat"];
-          $tester="incomplete ";
+          $tester="incomplete";
 
           if (strpos($requester, $tester)== 0) {
 
@@ -178,7 +178,7 @@ function readRequests($fileName){
         }
       }else{
         $requester=$requests[$key]["stat"];
-        $tester="incomplete ";
+        $tester="incomplete";
         $user=$requests[$key]["user"];
         $food=$requests[$key]["food"];
         $comment=$requests[$key]["comment"];
