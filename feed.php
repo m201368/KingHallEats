@@ -207,7 +207,9 @@ function showyourfriends($name)
           </tbody>
         </table>
         <br><br>
-        <a class="btn btn-primary" href="./companyfeed.php" role="button" style="margin-left:auto;margin-right:auto;">Customize by Company</a>
+        <div class="text-center">
+          <a class="btn btn-primary" href="./companyfeed.php" role="button" style="margin-left:auto;margin-right:auto;">Customize by Company</a>
+        </div>
       </div>
     </div>
   </body>
