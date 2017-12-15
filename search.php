@@ -174,7 +174,7 @@ function readRequests($fileName){
 
           if (strpos($requester, $tester)== 0) {
 
-                echo "<tr><td>".$requests[$key]["user"]."</td><td>".$requests[$key]["food"]."</td><td>".$requests[$key]["comment"]."</td><td>".$requests[$key]["time"]."</td><td>".$requests[$key]["stat"]."</td></tr>";
+                echo "<tr onclick=\"updateRequests('".$requests[$key]["user"]."','".$requests[$key]["time"]."')\"><td>".$requests[$key]["name"]."</td><td>".$requests[$key]["food"]."</td><td>".$requests[$key]["comment"]."</td><td>".$requests[$key]["time"]."</td><td>".$requests[$key]["stat"]."</td></tr>";
         }
       }else{
         $requester=$requests[$key]["stat"];
@@ -192,7 +192,7 @@ function readRequests($fileName){
         // echo $search."   search  \n";
         if (strpos($requester, $tester)== 0 && (strpos($user,$search)!==FALSE || strpos($food,$search)!==FALSE || strpos($comment,$search)!==FALSE )) {
 
-              echo "<tr><td>".$requests[$key]["user"]."</td><td>".$requests[$key]["food"]."</td><td>".$requests[$key]["comment"]."</td><td>".$requests[$key]["time"]."</td><td>".$requests[$key]["stat"]."</td></tr>";
+              echo "<tr onclick=\"updateRequests('".$requests[$key]["user"]."','".$requests[$key]["time"]."')\"><td>".$requests[$key]["name"]."</td><td>".$requests[$key]["food"]."</td><td>".$requests[$key]["comment"]."</td><td>".$requests[$key]["time"]."</td><td>".$requests[$key]["stat"]."</td></tr>";
       }
       }
       }
