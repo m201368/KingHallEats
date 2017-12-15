@@ -101,7 +101,7 @@ Last Edited: 28 OCT 2017
   <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-2 jumbotron">
-       <h3 class="text-center"><?php echo $_COOKIE['user'];?></h3><br>
+      <h3 class="text-center"><?php echo $_COOKIE['user'];?></h3><br>
       Name: <?php echo $array[$_COOKIE['user']]["name"];?><br>
       Company: <?php echo $array[$_COOKIE['user']]["company"];?><br>
       Room: <?php echo $array[$_COOKIE['user']]["room"];?><br>
@@ -114,7 +114,7 @@ Last Edited: 28 OCT 2017
     $file = "requests.txt";
     if(file_exists($file)) {
       $fin = fopen($file, "a+") or die("you cant write to the file");
-      $order = $_COOKIE['user'].";".($_POST['sFood']).";".($_POST['com']).";".(time()).";incomplete;nobody\n";
+      $order = $_COOKIE['user'].";".($_POST['sFood']).";".($_POST['com']).";".(date('Y-m-d H:i:s', time()))."; incomplete; nobody\n";
       fwrite($fin, $order);
       fclose($file);
       print "<b>Thanks for submitting a request!</b>";
