@@ -1,4 +1,13 @@
 <html>
+<!--
+ +Description: PHP file that allows users to a new friend.
+ +Created by : Ben Birney
+ +Created on : 5 NOV 2017
+ +Last Modified by: Ben Birney
+ +Last Modified on: 15 DEC 2017
+ +Modified by: Sarah Barkley, Lani Davis, Chris Daves
+ +-->
+
 <?php
   session_start();
   if(!isset($_COOKIE['user'])) {
@@ -25,6 +34,7 @@
   }
   $array = readUsers("users.txt");
   $user = $_COOKIE["user"];
+
   //returns array of all friends of person with inputed name from friends file
   function showyourfriends($name){
     $array;
@@ -68,6 +78,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="http://grfx.cstv.com/graphics/school-logos/navy-lg.png">
   <title>Add a friend</title>
+  <!-- Boostrap -->
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!--[if lt IE 9]>
    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -77,6 +88,7 @@
   <script src="bootstrap/js/bootstrap.min.js"></script>
   <link type="text/css" rel="stylesheet" href="default.css">
   <script type="text/javascript">
+
     //make sure all boxes have been set
     function check(){
       var x = document.getElementById("form");
@@ -94,6 +106,7 @@
 <body>
   <nav class="navbar navbar-custom navbar-fixed-top">
     <div class="container-fluid">
+
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
