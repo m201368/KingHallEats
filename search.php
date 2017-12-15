@@ -1,5 +1,5 @@
-<?php
 
+<?php
 function readRequests($fileName){
   $array;
   $fp = fopen($fileName, 'r');   //open the file for reading
@@ -19,7 +19,6 @@ function readRequests($fileName){
   fclose($fp);                   //close the file
   return $array;
 }
-
 ?>
 
 <html>
@@ -79,9 +78,9 @@ function readRequests($fileName){
       <button class="form-control btn btn-default" type="submit"><i class="glyphicon glyphicon-log-out"></i></button>
   </div>
 </form>
-<form method="post" class="navbar-form navbar-right" role="search" action="search.php">
+<form class="navbar-form navbar-right" role="search" action="search.php">
   <div class="input-group">
-      <input type="text" class="form-control" placeholder="Search" name="search">
+      <input type="text" class="form-control" placeholder="Search" name="q">
       <div class="input-group-btn">
         <button class="btn btn-default form-control" type="submit"><i class="glyphicon glyphicon-search"></i></button>
       </div>
@@ -119,11 +118,12 @@ function readRequests($fileName){
         Favorite Food: <?php echo $array[$_COOKIE['user']]["favfood"];?><br>
       </div>
       <div class="col-md-8">
-        <div class="input-group"style="max-width:25%;">
-          <input type="text" class="form-control">
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="button">Search</button>
-          </span>
+        <form method="post" action="search.php">
+    <input type="text" name="search" id="search">
+    <input type="submit" value="Submit Form">
+
+</form>
+</div>
         </div>
 
     <h4>Current Requests:</h4>
@@ -140,18 +140,16 @@ function readRequests($fileName){
       // print_r($_POST);
       // echo"</pre>";
         foreach ($requests as $key => $value) {
-
           if($_POST['search']==""){
           $requester=$requests[$key]["stat"];
-          $tester="incomplete";
-
+          $tester="incomplete ";
+          //echo $requester;
           if (strpos($requester, $tester)== 0) {
-
                 echo "<tr><td>".$requests[$key]["user"]."</td><td>".$requests[$key]["food"]."</td><td>".$requests[$key]["comment"]."</td><td>".$requests[$key]["time"]."</td><td>".$requests[$key]["stat"]."</td></tr>";
         }
       }else{
         $requester=$requests[$key]["stat"];
-        $tester="incomplete";
+        $tester="incomplete ";
         $user=$requests[$key]["user"];
         $food=$requests[$key]["food"];
         $comment=$requests[$key]["comment"];
@@ -160,16 +158,13 @@ function readRequests($fileName){
         $food=strtolower($food);
         $comment=strtolower($comment);
         $search=strtolower($search);
-
         // echo $user."   user  \n";
         // echo $search."   search  \n";
         if (strpos($requester, $tester)== 0 && (strpos($user,$search)!==FALSE || strpos($food,$search)!==FALSE || strpos($comment,$search)!==FALSE )) {
-
               echo "<tr><td>".$requests[$key]["user"]."</td><td>".$requests[$key]["food"]."</td><td>".$requests[$key]["comment"]."</td><td>".$requests[$key]["time"]."</td><td>".$requests[$key]["stat"]."</td></tr>";
       }
       }
       }
-
     ?>
     </tbody>
     </table>
