@@ -1,24 +1,45 @@
 <?php
+function readUsers($fileName){
+    $array;
+    $fp = fopen($fileName, 'r');   //open the file for reading
+    $line = fgets($fp);          // read lines
+    while( !feof($fp) ) {
+      $l = explode(",", $line);
+      $array[$l[0]]['user'] = $l[0];
+      $array[$l[0]]['pass'] = $l[1];
+      $array[$l[0]]['name'] = $l[2];
+      $array[$l[0]]['company'] = $l[3];
+      $array[$l[0]]['room'] = $l[4];
+      $array[$l[0]]['allergy'] = $l[5];
+      $array[$l[0]]['status'] = $l[6];
+      $array[$l[0]]['favfood'] = $l[7];
+      $line = fgets($fp);
+    }
+    fclose($fp);                   //close the file
+    return $array;
+  }
+  $array = readUsers("users.txt");
 function readRequests($fileName)
-{
+  {
     $request;
     $fp = fopen($fileName, 'r');   //open the file for reading
-  $line = fgets($fp);          // read lines
-  $count = 0;
+    $line = fgets($fp);          // read lines
+    $count = 0;
     while (!feof($fp)) {
-        $l = explode(";", $line);
-        $request[$count]['user'] = $l[0];
-        $request[$count]['food'] = $l[1];
-        $request[$count]['comment'] = $l[2];
-        $request[$count]['time'] = $l[3];
-        $request[$count]['stat'] = $l[4];
-        $line = fgets($fp);
-        $count++;
+      $l = explode(";", $line);
+      $request[$count]['user'] = $l[0];
+      $request[$count]['food'] = $l[1];
+      $request[$count]['comment'] = $l[2];
+      $request[$count]['time'] = $l[3];
+      $request[$count]['stat'] = $l[4];
+      $array[$count]['doneBy'] = $l[5];
+      $line = fgets($fp);
+      $count++;
     }
     fclose($fp);
     //close the file
     return $request;
-}
+  }
 
 ?>
 
@@ -112,10 +133,11 @@ function readRequests($fileName)
       <div class="col-md-2 jumbotron">
         <h3 class="text-center"><?php echo $_COOKIE['user'];?></h3><br>
         <br>
-        Name: <?php echo $data[$_COOKIE['user']]['fullname'];?><br>
-        Company: <?php echo $data[$_COOKIE['user']]['company'];?><br>
-        Room: <?php echo $data[$_COOKIE['user']]['room'];?><br>
-        Bio: <?php echo $data[$_COOKIE['user']]['bio'];?><br>
+        Name: <?php echo $array[$_COOKIE['user']]["name"];?><br>
+        Company: <?php echo $array[$_COOKIE['user']]["company"];?><br>
+        Room: <?php echo $array[$_COOKIE['user']]["room"];?><br>
+        Allergies: <?php echo $array[$_COOKIE['user']]["allergy"];?><br>
+        Favorite Food: <?php echo $array[$_COOKIE['user']]["favfood"];?><br>
       </div>
       <div class="col-md-8">
         <div class="input-group"style="max-width:25%;">
