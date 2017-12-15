@@ -42,7 +42,6 @@ Last Edited: 28 OCT 2017
   <meta name="keywords" content="food, request, king, hall, kinghalleats">
   <meta name="author" content="Ben Birney">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="http://grfx.cstv.com/graphics/school-logos/navy-lg.png">
   <title>Food Request</title>
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!--[if lt IE 9]>
