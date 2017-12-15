@@ -140,13 +140,13 @@ function readUsers($fileName){
                 <option value="">Access Level</option>
                 <option value="admin">Admin</option>
                 <option value="user">User</option>
-              </select>
-            </form>
+            </select>
           </div>
           <div class="col-md-6 text-center">
             <br>
             Remove a User:
             <br><input type="text" class="form-control" name="removeUser" placeholder="Username" style="max-width:50%;margin-left:auto;margin-right:auto;">
+            </form>
           </div>
         </div>
         <div class="row">
