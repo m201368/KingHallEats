@@ -1,3 +1,10 @@
+<!--
+ +Description: PHP script that, most notably, allows easy editing of requests file.
+ +Created by : Chris Daves
+ +Created on : 14 DEC 2017
+ +Modified by: Sarah Barkley
+ +-->
+
 <?php
   function readRequests($fileName)
   {
