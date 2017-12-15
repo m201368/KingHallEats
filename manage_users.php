@@ -31,7 +31,12 @@ function readUsers($fileName){
     }
   }
 ?>
-
+<!--
+ +Description: PHP file that welcomes user to King Hall Eats website. Provides links to every page availabe on the website, including login page.
+ +Created by : Benjamin Birney
+ +Created on : 25 OCT 2017
+ +Last Edited: 14 DEC 2017
+ +-->
 <html>
 <head>
   <meta charset="UTF-8">
