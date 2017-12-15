@@ -149,7 +149,7 @@ $array  = readUsers("users.txt");
       <div class="col-md-9">
     <h2 class="text-center">Company Feed</h2>
 
-    <form class="form" method='post' action="?" >
+    <form class="form" method='post' action="companyfeed.php" >
     <label for='search'>Customize by Company</label>
     <select name="selectex" class="form-control" style="max-width:10%">
       <option value="1">1</option>
@@ -201,20 +201,20 @@ $array  = readUsers("users.txt");
     $company = $_POST["selectex"];
 
 
-foreach ($array as $key => $value) {
-  $name="";
-  if($array[$key]["company"]==$company)
-  {
-    $name=$array[$key]["user"];
-  //  echo $name." named";
-  }
-  //echo "".$array[$key]["company"]."   company<br>";
+
         foreach ($requests as $key => $value) {
-            if ($_POST["selectex"] == $requests[$key]["company"] && $requests[$key]["stat"]=="incomplete") {
+            // $requester=$requests[$key]["stat"];
+            // $tester="incomplete";
+            // echo $name." name<br>";
+            // echo $requests[$key]["user"]," requester<br><br>";
+            //echo strcmp($name,$requests[$key]["user"])." result of strcmp <br><br>";
+            echo $requests[$key]["company"];
+            if ($_POST["selectex"] == $array[$requests[$key]["user"]]["company"] && $requests[$key]["stat"]=="incomplete") {
+              //<tr onclick=\"agreetodeliver()\">
                 echo "<tr onclick=\"updateRequests('".$requests[$key]["user"]."','".$requests[$key]["time"]."')\"><td>".$requests[$key]["user"]."</td><td>".$requests[$key]["food"]."</td><td>".$requests[$key]["comment"]."</td><td>".$requests[$key]["time"]."</td></tr>";
             }
         }
-    }
+
     ?>
     </tbody>
     </table>
