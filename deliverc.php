@@ -1,4 +1,12 @@
+<!--
+ +Description: PHP file that allows users to contact the staff for feedback.
+ +Created by : Chris Daves
+ +Created on : 14 DEC 2017
+ +-->
+
 <?php
+
+// function: return in file of requests, return associative array of those requests.
   function readRequests($fileName)
   {
     $request;
@@ -20,6 +28,8 @@
     //close the file
     return $request;
   }
+
+  // function: streamlined way of updated a given request within requests file without leaving function
   function updateRequests($user,$time,$requests){
     $f = fopen("requests.txt", 'w');
     fclose($f);
@@ -44,7 +54,4 @@
     updateRequests($_GET["user"],$_GET["time"],$r);
   }
   header("location: companyfeed.php");
-  // echo"<pre>";
-  // print_r($r);
-  // echo"</pre>";
 ?>
