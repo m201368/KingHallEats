@@ -93,10 +93,11 @@ if (!isset($_COOKIE['user'])) {
     <div class="col-md-1"></div>
     <div class="col-md-2 jumbotron">
       <h3 class="text-center"><?php echo $_COOKIE['user'];?></h3><br>
-      Name: <?php echo $CSV[$_COOKIE['user']]['fullname'];?><br>
-      Company: <?php echo $CSV[$_COOKIE['user']]['company'];?><br>
-      Room: <?php echo $CSV[$_COOKIE['user']]['room'];?><br>
-      Bio: <?php echo $CSV[$_COOKIE['user']]['bio'];?><br>
+      Name: <?php echo $array[$_COOKIE['user']]["name"];?><br>
+      Company: <?php echo $array[$_COOKIE['user']]["company"];?><br>
+      Room: <?php echo $array[$_COOKIE['user']]["room"];?><br>
+      Allergies: <?php echo $array[$_COOKIE['user']]["allergy"];?><br>
+      Favorite Food: <?php echo $array[$_COOKIE['user']]["favfood"];?><br>
     </div>
     <div class="col-md-8">
       <?php
