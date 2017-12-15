@@ -1,4 +1,10 @@
-<!Doctype HTML>
+<!--
+ +Description: PHP file that allows admin to manage (add/delete) users.
+ +Created by : Ben Birney
+ +Created on : 2 NOV 2017
+ +Last Modified on: 15 DEC 2017
+ +-->
+
 <?php
 require_once("lib_read_csv.php");
 function readUsers($fileName){
@@ -123,6 +129,8 @@ function readUsers($fileName){
         <div class="row">
           <div class="col-md-12 text-center">
             <br>
+
+            <!-- Form used to add a user, including updating access level -->
             Add a user:
               <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="names" placeholder="Name"><br>
               <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="company" placeholder="Company"><br>
