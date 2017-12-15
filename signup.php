@@ -113,7 +113,7 @@
       </form>
     </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
-  </nav>COOKIE
+  </nav>
 
   <div class="row">
     <div class="col-md-4"></div>

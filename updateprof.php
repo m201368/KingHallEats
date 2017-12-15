@@ -88,11 +88,11 @@
             <button class="form-control btn btn-default" type="submit"><i class="glyphicon glyphicon-log-out"></i></button>
         </div>
       </form>
-      <form class="navbar-form navbar-right" role="search" action="search.php">
+      <form method="post" class="navbar-form navbar-right" role="search" action="search.php">
         <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search" name="q">
+            <input type="text" class="form-control" placeholder="Search" name="search">
             <div class="input-group-btn">
-              <button class="btn btn-default form-control" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+              <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
             </div>
         </div>
       </form>
