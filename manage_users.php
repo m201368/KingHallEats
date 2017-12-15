@@ -156,7 +156,7 @@ function readUsers($fileName){
               $data = $_POST['user'].",".sha1($_POST['pass']).",".$_POST['names'].",".$_POST['company'].",".$_POST['room'].",".$_POST["allergy"].",".$_POST['access'].",".$_POST["favfood"]."\n";
               fwrite($file,$data);
               fclose($file);
-              echo "<b>User Successfully Created!</b>";
+              echo "<b>User Successfully Created!</b><br>";
             }
             if(isset($_POST['removeUser'])) {
               foreach ($CSV as $user) {
@@ -167,7 +167,7 @@ function readUsers($fileName){
                 }
               }
               write_csv("users.txt", $CSV, False);
-              echo "<b>User Removed</b>";
+              echo "<b>User Removed</b><br>";
             }
             ?>
           </div>
