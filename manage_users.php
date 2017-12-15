@@ -69,7 +69,6 @@ function readUsers($fileName){
         <span class="icon-bar"></span>
       </button>
     </div>
-
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <a class="navbar-brand" href="./welcomePage.php">
@@ -107,43 +106,69 @@ function readUsers($fileName){
     </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
-
-    <form method='Post' action='?'>
-      <div class="row">
-        <div class="col-md-6 text-center">
-          <br>
-          Add a user:
-          <input type="text" name="addUser" class="form-control" placeholder="Username" style="max-width:50%;margin-left:auto;margin-right:auto;">
-          <br><input type="password" name="pass" class="form-control" placeholder="Password" style="max-width:50%;margin-left:auto;margin-right:auto;">
-          <br><input type="text" name="name" class="form-control" placeholder="Full Name" style="max-width:50%;margin-left:auto;margin-right:auto;">
-          <br><input type="text" name="name" class="form-control" placeholder="Room" style="max-width:50%;margin-left:auto;margin-right:auto;">
-          <br><select name="access">
-            <option value="">Access Level</option>
-            <option value="admin">Admin</option>
-            <option value="user">User</option>
-          </select>
-        </div>
-        <div class="col-md-6 text-center">
-          <br>
-          Remove a User:
-          <br><input type="text" class="form-control" name="removeUser" placeholder="Username" style="max-width:50%;margin-left:auto;margin-right:auto;">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4 text-center">
-          <br>
-          <input type="Submit" value="Create/Remove User">
-        </div>
-        <div class="col-md-4"></div>
-      </div>
-    </form>
-    <div class="row">
-      <div class="col-md-4"></div>
-      <div class="col-md-4">
-
-      </div>
-      <div class="col-md-4"></div>
+  <br>
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-2 jumbotron">
+      <h3 class="text-center"><?php echo $_COOKIE['user'];?></h3><br>
+      Name: <?php echo $array[$_COOKIE['user']]["name"];?><br>
+      Company: <?php echo $array[$_COOKIE['user']]["company"];?><br>
+      Room: <?php echo $array[$_COOKIE['user']]["room"];?><br>
+      Allergies: <?php echo $array[$_COOKIE['user']]["allergy"];?><br>
+      Favorite Food: <?php echo $array[$_COOKIE['user']]["favfood"];?><br>
     </div>
+    <div class="col-md-9">
+      <form method='Post' action='?'>
+        <div class="row">
+          <div class="col-md-6 text-center">
+            <br>
+            Add a user:
+              <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="names" placeholder="Name"><br>
+              <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="company" placeholder="Company"><br>
+              <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="room" placeholder="Room #"><br>
+              <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="user" placeholder="Username"><br>
+              <input type="password" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="pass" id="pass" placeholder="Password"><br>
+              <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="allergy" placeholder="Allergies"><br>
+              <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="favfood" placeholder="Favorite Food"><br>
+              <select name="access" class="form-control" style="max-width:18%;margin-left:auto;margin-right:auto;">
+                <option value="">Access Level</option>
+                <option value="admin">Admin</option>
+                <option value="user">User</option>
+              </select>
+            </form>
+          </div>
+          <div class="col-md-6 text-center">
+            <br>
+            Remove a User:
+            <br><input type="text" class="form-control" name="removeUser" placeholder="Username" style="max-width:50%;margin-left:auto;margin-right:auto;">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-4 text-center">
+            <br>
+            <button type="submit" class="btn btn-default">Create/Remove User</button>
+          </div>
+          <div class="col-md-4"></div>
+        </div>
+      </form>
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <?php
+          if(isset($_POST['names'])) {
+            $file = fopen("users.txt",'a');
+            $data = $_POST['user'].",".sha1($_POST['pass']).",".$_POST['names'].",".$_POST['company'].",".$_POST['room'].",".$_POST["allergy"].",".$_POST['access'].",".$_POST["favfood"]."\n";
+            fwrite($file,$data);
+            fclose($file);
+          }
+          if(isset($_POST['removeUser'])) {
+            $CSV;
+          }
+          ?>
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+  </div>
 </body>
 </html>
