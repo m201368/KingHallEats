@@ -78,6 +78,12 @@ function readRequests($fileName){
     <link type="text/css" rel="stylesheet" href="default.css">
 
   </head>
+  <script type="text/javascript">
+    function updateRequests(user,time){
+      var line="delivers.php?user="+user+"&time="+time;
+      window.location.href = line;
+    }
+  </script>
   <body>
     <nav class="navbar navbar-custom">
 <div class="container-fluid">
