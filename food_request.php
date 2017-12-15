@@ -55,7 +55,7 @@ Last Edited: 28 OCT 2017
 </head>
 
 <body>
-  <nav class="navbar navbar-custom">
+  <nav class="navbar navbar-custom navbar-fixed-top">
     <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
