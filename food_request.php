@@ -125,7 +125,7 @@ Last Edited: 28 OCT 2017
     $file = "requests.txt";
     if(file_exists($file)) {
       $fin = fopen($file, "a+") or die("you cant write to the file");
-      $order = $_COOKIE['user'].";".($_POST['sFood']).";".($_POST['com']).";".(date('Y-m-d H:i:s', time()))."; incomplete; nobody\n";
+      $order = $_COOKIE['user'].";".($_POST['sFood']).";".($_POST['com']).";".(date('Y-m-d H:i:s', time())).";incomplete;nobody\n";
       fwrite($fin, $order);
       fclose($file);
       print "<b>Thanks for submitting a request!</b>";
