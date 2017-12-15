@@ -97,19 +97,23 @@
       fwrite($file, $entry);
       print "<b>User Successfully Created!</b>";
     }
-    if (isset($_POST['removeUser'])) {
-      foreach($CSV as $user) {
-        if ($user == $_POST['removeUser']) {
-          foreach ($user as $userData) {
-            $userData = "";
+
+    if ($_POST['row_delete'] != "") {
+        $CSV = read_csv($_POST['file_name']);
+        $headers = get_csv_headers($_POST['file_name']);
+
+        foreach ($CSV as &$row) {
+          if ($_POST['row_delete'] == $row[$headers[0]]) {
+            for ($i=0;$i<sizeof($headers);$i++) {
+              if($_POST['col_delete'] == $headers[$i]) {
+                $row[$headers[$i]] = $_POST['new_val'];
+              }
+            }
           }
-        } else if ($user == "end") {
-          echo "The user you wanted to remove doesn't exist!";
+          write_csv("users.txt", $CSV, True, True, True, ";");
         }
-      }
-      $file = fopen("users.txt", 'w') or die("invalid logs");
-      write_csv("users.txt", $CSV, True, True, True, ";");
-    }
+
+
     fclose($file);
     //give the admin options to create a user
   } else { ?>
@@ -130,8 +134,11 @@
         </div>
         <div class="col-md-6 text-center">
           <br>
-          Remove a User:
-          <br><input type="text" class="form-control" name="removeUser" placeholder="Username" style="max-width:50%;margin-left:auto;margin-right:auto;">
+          Edit a user:
+          <input type="text" name="row_delete" placeholder="User">
+          <input type="text" name="col_delete" placeholder="Attribute">
+          <input type="text" name="new_val" placeholder="New Value">
+          <input type="Submit" value="Edit File">
         </div>
       </div>
       <div class="row">
