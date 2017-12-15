@@ -147,7 +147,7 @@ if(isset($_POST['pass']) && (!isset($array[$_COOKIE['user']]) || sha1($_POST['pa
     </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
-    <br><br>
+    <br><br><br>
     <div class="col-md-1"></div>
     <div class="col-md-2 jumbotron">
       <h3 class="text-center"><?php echo $_COOKIE['user'];?></h3><br>
