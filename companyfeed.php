@@ -138,7 +138,7 @@ $array  = readUsers("users.txt");
         Favorite Food: <?php echo $array[$_COOKIE['user']]["favfood"];?><br>
       </div>
       <div class="col-md-9">
-    <h2 class="text-center">Status Feed</h2>
+    <h2 class="text-center">Company Feed</h2>
 
     <form class="form"method='post' action="" >
     <label for='search'>Customize by Company</label>
