@@ -148,6 +148,7 @@ Last Edited: 28 OCT 2017
         <br>
         <div id="specificFood"></div>
         <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="com" placeholder="Comments">
+        <br>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
     </div>
