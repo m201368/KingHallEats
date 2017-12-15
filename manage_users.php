@@ -1,5 +1,6 @@
 <!Doctype HTML>
 <?php
+require_once("lib_read_csv.php");
 function readUsers($fileName){
   $array;
   $fp = fopen($fileName, 'r');   //open the file for reading
@@ -111,11 +112,11 @@ function readUsers($fileName){
     <div class="col-md-1"></div>
     <div class="col-md-2 jumbotron">
       <h3 class="text-center"><?php echo $_COOKIE['user'];?></h3><br>
-      Name: <?php echo $array[$_COOKIE['user']]["name"];?><br>
-      Company: <?php echo $array[$_COOKIE['user']]["company"];?><br>
-      Room: <?php echo $array[$_COOKIE['user']]["room"];?><br>
-      Allergies: <?php echo $array[$_COOKIE['user']]["allergy"];?><br>
-      Favorite Food: <?php echo $array[$_COOKIE['user']]["favfood"];?><br>
+      Name: <?php echo $CSV[$_COOKIE['user']]["name"];?><br>
+      Company: <?php echo $CSV[$_COOKIE['user']]["company"];?><br>
+      Room: <?php echo $CSV[$_COOKIE['user']]["room"];?><br>
+      Allergies: <?php echo $CSV[$_COOKIE['user']]["allergy"];?><br>
+      Favorite Food: <?php echo $CSV[$_COOKIE['user']]["favfood"];?><br>
     </div>
     <div class="col-md-9">
       <form method='Post' action='?'>
@@ -130,7 +131,7 @@ function readUsers($fileName){
               <input type="password" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="pass" id="pass" placeholder="Password"><br>
               <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="allergy" placeholder="Allergies"><br>
               <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="favfood" placeholder="Favorite Food"><br>
-              <select name="access" class="form-control" style="max-width:18%;margin-left:auto;margin-right:auto;">
+              <select name="access" class="form-control" style="max-width:19%;margin-left:auto;margin-right:auto;">
                 <option value="">Access Level</option>
                 <option value="admin">Admin</option>
                 <option value="user">User</option>
@@ -148,26 +149,48 @@ function readUsers($fileName){
           <div class="col-md-4 text-center">
             <br>
             <button type="submit" class="btn btn-default">Create/Remove User</button>
+            <br><br>
+            <?php
+            if(isset($_POST['names'])) {
+              $file = fopen("users.txt",'a');
+              $data = $_POST['user'].",".sha1($_POST['pass']).",".$_POST['names'].",".$_POST['company'].",".$_POST['room'].",".$_POST["allergy"].",".$_POST['access'].",".$_POST["favfood"]."\n";
+              fwrite($file,$data);
+              fclose($file);
+              echo "<b>User Successfully Created!</b>";
+            }
+            if(isset($_POST['removeUser'])) {
+              foreach ($CSV as $user) {
+                if($user == $_POST['removeUser']){
+                  foreach ($user as $attribute=>$val) {
+                    $val = "";
+                  }
+                }
+              }
+              write_csv("users.txt", $CSV, False);
+              echo "<b>User Removed</b>";
+            }
+            ?>
           </div>
           <div class="col-md-4"></div>
         </div>
       </form>
       <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
+        <div class="col-md-12">
+          <table class="table table-bordered" style="max-width:75%;margin-left:auto;margin-right:auto;">
+            <thead><tr><th>Username</th><th>Name</th><th>Company</th><th>Room</th><th>Allergies</th><th>Access</th><th>Favorite Food</th></tr></thead><tbody>
           <?php
-          if(isset($_POST['names'])) {
-            $file = fopen("users.txt",'a');
-            $data = $_POST['user'].",".sha1($_POST['pass']).",".$_POST['names'].",".$_POST['company'].",".$_POST['room'].",".$_POST["allergy"].",".$_POST['access'].",".$_POST["favfood"]."\n";
-            fwrite($file,$data);
-            fclose($file);
-          }
-          if(isset($_POST['removeUser'])) {
-            $CSV;
-          }
+          $CSV = readUsers("users.txt");
+            foreach ($CSV as $user) {
+              echo "<tr>";
+              foreach ($user as $attribute=>$val) {
+                if($attribute != 'pass') {
+                  echo "<td>$val</td>";
+                }
+              }
+              echo "</tr>";
+            }
+            echo "</tbody></table>";
           ?>
-        </div>
-        <div class="col-md-4"></div>
       </div>
   </div>
 </body>
