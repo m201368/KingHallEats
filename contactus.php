@@ -61,7 +61,7 @@
   <!-- If the user is logged in, provides a separate navigation bar.
     The navigation bar includes links to logout, profile, newsfeed, request food, and a search bar.-->
   <?php if(isset($_COOKIE['user'])) {?>
-    <nav class="navbar navbar-custom">
+    <nav class="navbar navbar-custom navbar-fixed-top">
       <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
