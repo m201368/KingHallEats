@@ -31,12 +31,7 @@ function readUsers($fileName){
     }
   }
 ?>
-<!--
- +Description: PHP file that welcomes user to King Hall Eats website. Provides links to every page availabe on the website, including login page.
- +Created by : Benjamin Birney
- +Created on : 25 OCT 2017
- +Last Edited: 14 DEC 2017
- +-->
+
 <html>
 <head>
   <meta charset="UTF-8">
@@ -64,7 +59,7 @@ function readUsers($fileName){
 </head>
 
 <body>
-  <nav class="navbar navbar-custom navbar-fixed-top">
+  <nav class="navbar navbar-custom">
     <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -112,7 +107,7 @@ function readUsers($fileName){
     </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
-  <br>
+  <br><br>
   <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-2 jumbotron">
@@ -140,7 +135,7 @@ function readUsers($fileName){
                 <option value="">Access Level</option>
                 <option value="admin">Admin</option>
                 <option value="user">User</option>
-            </select>
+              </select>
           </div>
           <div class="col-md-6 text-center">
             <br>
@@ -153,17 +148,17 @@ function readUsers($fileName){
           <div class="col-md-4 text-center">
             <br>
             <button type="submit" class="btn btn-default">Create/Remove User</button>
-            </form>
+          </form>
             <br><br>
             <?php
-            if(isset($_POST['names'])) {
+            if($_POST['user']!="") {
               $file = fopen("users.txt",'a');
               $data = $_POST['user'].",".sha1($_POST['pass']).",".$_POST['names'].",".$_POST['company'].",".$_POST['room'].",".$_POST["allergy"].",".$_POST['access'].",".$_POST["favfood"]."\n";
               fwrite($file,$data);
               fclose($file);
-              echo "<b>User Successfully Created!</b><br>";
+              echo "<b>User Successfully Created!</b>";
             }
-            if(isset($_POST['removeUser'])) {
+            if($_POST['removeUser'] != "") {
               foreach ($CSV as $user) {
                 if($user == $_POST['removeUser']){
                   foreach ($user as $attribute=>$val) {
@@ -172,7 +167,7 @@ function readUsers($fileName){
                 }
               }
               write_csv("users.txt", $CSV, False);
-              echo "<b>User Removed</b><br>";
+              echo "<b>User Removed</b>";
             }
             ?>
           </div>
