@@ -147,7 +147,7 @@ function readRequests($fileName){
         <div class="input-group"style="max-width:25%;">
           <input type="text" class="form-control">
           <span class="input-group-btn">
-            <button class="btn btn-default" type="button">Search</button>
+            <button class="btn btn-default" type="submit">Search</button>
           </span>
         </div>
 
