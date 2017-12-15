@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<!--Created by: Ben Birney
+  Created On: Nov 10, 2017
+  Last Edit: Dec 14, 2017
+-->
 <?php
   function readUsers($fileName){
     $array;
