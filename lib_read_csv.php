@@ -1,3 +1,12 @@
+<!--
+ +Description: PHP file that allows users to contact the staff for feedback.
+ +Created by : Ben Birney
+ +Created on : 27 NOV 2017
+ +Last Modified by: Ben Birney
+ +Last Modified on: 11 DEC 2017
+ +Modified by: Ben Birney
+ +-->
+
 <?php
 
   // This function reads in a CSV, Comma Seperated file, and returns a
@@ -31,6 +40,7 @@
     return $table;
   }
 
+// function: allows writing to a csv file while retaining the format given by read_csv().
     function write_csv($filename, $data=array(), $withHeaders=True, $withLeftID=True, $leftID='', $withDelimiter=',') {
     if ($withHeaders) {
       $headers = get_csv_headers($filename);
