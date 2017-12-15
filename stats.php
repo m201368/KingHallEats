@@ -6,8 +6,8 @@ if (!isset($_COOKIE['user'])) {
   header("Location: signup.php");
   exit();
 } else {
-  $CSV = readUsers("users.txt");
-  if ($CSV[$_COOKIE['user']]['status'] != 'admin') {
+  $array = readUsers("users.txt");
+  if ($array[$_COOKIE['user']]['status'] != 'admin') {
     header("Location: profile.php");
   }
 }
