@@ -1,4 +1,8 @@
 <?php
+/*Descrpition: Allows a user to search through all requests based on keywords
+  Created on: 23 NOV 2017
+  Last Edit: 14 DEC 2017
+*/
 $array  = readUsers("users.txt");
 
 if(isset($_POST['pass']) && (!isset($array[$_COOKIE['user']]) || sha1($_POST['pass']) != $array[$_POST['user']]['pass'])){
@@ -167,6 +171,7 @@ function readRequests($fileName){
         <tbody>
 
     <?php
+          //use the entered word to search through different aspects of requests.txt
   $requests = readRequests("requests.txt");
       // echo"<pre>";
       // print_r($requests);
