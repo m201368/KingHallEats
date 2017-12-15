@@ -1,4 +1,9 @@
 <?php
+/*Description: Displays current user requests and unfilled friends' requests
+  Created By: Lani Davis
+  Created On: 1 DEC 2017
+  Last Edited: 14 DEC 2017
+*/
   if(isset($_COOKIE["user"])) {
     $user = $_COOKIE["user"];
   } else {
@@ -92,6 +97,8 @@ function showyourfriends($name)
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <link type="text/css" rel="stylesheet" href="default.css">
   </head>
+  <!-- Manually builds a url that contains pertinent information and then navigates to deliver.php which can access the 
+  variables with $_GET. -->
   <script type="text/javascript">
     function updateRequests(user,time){
       var line="deliver.php?user="+user+"&time="+time;
@@ -178,7 +185,7 @@ function showyourfriends($name)
             $user = $_COOKIE["user"];
             $friends = showyourfriends($_COOKIE["user"]);
             $requests = readRequests("requests.txt");
-
+            //each <tr> has an onclick element that calls updateRequests() and passes in the user name and time of the clicked request
               for ($i=0; $i<sizeof($friends); $i++) {
                   $name = trim($friends[$i]);
                   foreach ($requests as $key => $value) {
@@ -198,6 +205,7 @@ function showyourfriends($name)
           </thead>
           <tbody>
             <?php
+               //prints off the user's current requests
                foreach ($requests as $key => $value) {
                     if (strcmp($user,$requests[$key]["user"])==0) {
                         echo "<tr><td>".$requests[$key]["food"]."</td><td>".$requests[$key]["comment"]."</td><td>".$requests[$key]["stat"]."</td></tr>";
