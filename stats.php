@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <?php
 
 if (!isset($_COOKIE['user'])) {
@@ -18,7 +17,7 @@ if (!isset($_COOKIE['user'])) {
  +Description: PHP file that shows an admin stats of website
  +Created by : Chris Daves
  +Created on : 23 OCT 2017
- +Last Edited: 06 NOV 2017
+ +Last Edited: 14 DEC 2017
  +-->
 <head>
   <meta charset="utf-8">
