@@ -121,7 +121,7 @@ function readUsers($fileName){
     <div class="col-md-9">
       <form method='Post' action='?'>
         <div class="row">
-          <div class="col-md-6 text-center">
+          <div class="col-md-12 text-center">
             <br>
             Add a user:
               <input type="text" class="form-control" style="max-width:50%;margin-left:auto;margin-right:auto;" name="names" placeholder="Name"><br>
@@ -136,18 +136,13 @@ function readUsers($fileName){
                 <option value="admin">Admin</option>
                 <option value="user">User</option>
               </select>
-          </div>
-          <div class="col-md-6 text-center">
-            <br>
-            Remove a User:
-            <br><input type="text" class="form-control" name="removeUser" placeholder="Username" style="max-width:50%;margin-left:auto;margin-right:auto;">
-          </div>
+          </div>-
         </div>
         <div class="row">
           <div class="col-md-4"></div>
           <div class="col-md-4 text-center">
             <br>
-            <button type="submit" class="btn btn-default">Create/Remove User</button>
+            <button type="submit" class="btn btn-default">Create User</button>
           </form>
             <br><br>
             <?php
@@ -157,17 +152,6 @@ function readUsers($fileName){
               fwrite($file,$data);
               fclose($file);
               echo "<b>User Successfully Created!</b>";
-            }
-            if($_POST['removeUser'] != "") {
-              foreach ($CSV as $user) {
-                if($user == $_POST['removeUser']){
-                  foreach ($user as $attribute=>$val) {
-                    $val = "";
-                  }
-                }
-              }
-              write_csv("users.txt", $CSV, False);
-              echo "<b>User Removed</b>";
             }
             ?>
           </div>
