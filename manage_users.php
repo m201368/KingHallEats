@@ -146,7 +146,6 @@ function readUsers($fileName){
             <br>
             Remove a User:
             <br><input type="text" class="form-control" name="removeUser" placeholder="Username" style="max-width:50%;margin-left:auto;margin-right:auto;">
-            </form>
           </div>
         </div>
         <div class="row">
@@ -154,6 +153,7 @@ function readUsers($fileName){
           <div class="col-md-4 text-center">
             <br>
             <button type="submit" class="btn btn-default">Create/Remove User</button>
+            </form>
             <br><br>
             <?php
             if(isset($_POST['names'])) {
