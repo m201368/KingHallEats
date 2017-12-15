@@ -210,13 +210,7 @@ foreach ($array as $key => $value) {
   }
   //echo "".$array[$key]["company"]."   company<br>";
         foreach ($requests as $key => $value) {
-            // $requester=$requests[$key]["stat"];
-            // $tester="incomplete";
-            // echo $name." name<br>";
-            // echo $requests[$key]["user"]," requester<br><br>";
-            //echo strcmp($name,$requests[$key]["user"])." result of strcmp <br><br>";
-            if ($_POST["selectex"] == $requests[$key]["company"] && requests[$key]["stat"]=="incomplete") {
-              //<tr onclick=\"agreetodeliver()\">
+            if ($_POST["selectex"] == $requests[$key]["company"] && $requests[$key]["stat"]=="incomplete") {
                 echo "<tr onclick=\"updateRequests('".$requests[$key]["user"]."','".$requests[$key]["time"]."')\"><td>".$requests[$key]["user"]."</td><td>".$requests[$key]["food"]."</td><td>".$requests[$key]["comment"]."</td><td>".$requests[$key]["time"]."</td></tr>";
             }
         }
