@@ -43,9 +43,8 @@
   if(isset($_GET["user"])){
     updateRequests($_GET["user"],$_GET["time"],$r);
   }
-  header("location: feed.php");
+  header("location: search.php");
   // echo"<pre>";
   // print_r($r);
   // echo"</pre>";
 ?>
-
