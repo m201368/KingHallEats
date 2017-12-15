@@ -3,7 +3,7 @@
   require_once("lib_read_csv.php");
 
   // read in our schedules
-  $data = read_csv("menu.csv");
+  $data = read_csv("menu.csv", true, false, ";");
 
   function readUsers($fileName){
     $array;
@@ -109,9 +109,9 @@
         <div class="col-md-4">
         <h3 class="text-center">Today's Menu</h3>
         <?php
-          echo "Breakfast: ".$data['breakfast']."<br>";
-          echo "Lunch: ".$data['lunch']."<br>";
-          echo "Dinner: ".$data['dinner']."<br>";
+          echo "Breakfast: ".$data[1]['breakfast']."<br>";
+          echo "Lunch: ".$data[1]['lunch']."<br>";
+          echo "Dinner: ".$data[1]['dinner']."<br>";
         ?>
         </div>
         <div class="col-md-4"></div>
