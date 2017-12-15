@@ -31,7 +31,7 @@
         fclose($file);
       }
       else{
-        $order = $requests[$key]['user'].";".$requests[$key]['food'].";".$requests[$key]["comment"].";".$requests[$key]["time"].";".$requests[$key]["stat"].";".$requests[$key]["doneBy"]."\n";
+        $order = $requests[$key]['user'].";".$requests[$key]['food'].";".$requests[$key]["comment"].";".$requests[$key]["time"].";".$requests[$key]["stat"].";".$requests[$key]["doneBy"];
         fwrite($file, $order);
         fclose($file);
       }
