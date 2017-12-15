@@ -163,11 +163,13 @@ if(isset($_POST['pass']) && (!isset($array[$_COOKIE['user']]) || sha1($_POST['pa
       <h3>Requests:</h3>
       <?php
         $requests = readRequests("requests.txt");
+        echo "<table class=\"table table-bordered\"><thead><th>Request</th><th>Comment</th><th>Status</th><th>Fulfilled By</th></thead><tbody>";
         foreach ($requests as $key => $value) {
           if($requests[$key]["user"]==$user){
-             echo "Request: ".$requests[$key]["food"]." Comment: ".$requests[$key]["comment"]." Status: ".$requests[$key]["stat"]." Fulfilled By: ".$requests[$key]["doneBy"]."<br>";
+            echo "<tr><td>".$requests[$key]["food"]."</td><td>".$requests[$key]["comment"]."</td><td>".$requests[$key]["stat"]."</td><td>".$requests[$key]["doneBy"]."</td></tr>";
            }
         }
+        echo "</tbody></table>";
 
       ?>
       <br>
