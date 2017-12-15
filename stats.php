@@ -141,13 +141,13 @@ if (!isset($_COOKIE['user'])) {
         }
         $requests = readRequests("requests.txt");
         $deliveries = 0;
-        foreach ($requests as $key) {
+        foreach ($requests as $key => $val) {
           if($requests[$key]['stat'] == "complete"){
             $deliveries++;
           }
         }
         echo "<table class=\"table table-bordered\" style=\"max-width:50%;margin-left:auto;margin-right:auto;\"><thead><td>Stat</td><td>Result</td></thead><tbody>";
-        echo "<tr><td>Number of Users</td><td>".sizeof($users)."</td></tr>";
+        echo "<tr><td>Number of Users</td><td>".sizeof($array)."</td></tr>";
         echo "<tr><td>Total Requests Made</td><td>".sizeof($requests)."</td></tr>";
         echo "<tr><td>Requests filled</td><td>".$deliveries."</td></tr>";
         echo "</tbody></table>";
