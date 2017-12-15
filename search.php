@@ -145,10 +145,12 @@ function readRequests($fileName){
       </div>
       <div class="col-md-8">
         <div class="input-group"style="max-width:25%;">
-          <input type="text" class="form-control">
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="submit">Search</button>
-          </span>
+          <form method="post" action="search.php">
+            <span class="input-group-btn">
+              <input type="text" class="form-control" name="search">
+              <button class="btn btn-default" type="submit">Search</button>
+            </span>
+          </form>
         </div>
 
     <h4>Current Requests:</h4>
