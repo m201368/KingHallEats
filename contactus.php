@@ -25,6 +25,27 @@
 
     <?php
 
+    function readUsers($fileName){
+      $array;
+      $fp = fopen($fileName, 'r');   //open the file for reading
+      $line = fgets($fp);          // read lines
+      while( !feof($fp) ) {
+        $l = explode(",", $line);
+        $array[$l[0]]['user'] = $l[0];
+        $array[$l[0]]['pass'] = $l[1];
+        $array[$l[0]]['name'] = $l[2];
+        $array[$l[0]]['company'] = $l[3];
+        $array[$l[0]]['room'] = $l[4];
+        $array[$l[0]]['allergy'] = $l[5];
+        $array[$l[0]]['status'] = $l[6];
+        $array[$l[0]]['favfood'] = $l[7];
+        $line = fgets($fp);
+      }
+      fclose($fp);                   //close the file
+      return $array;
+    }
+    $array  = readUsers("users.txt");
+
     // Checks if the name field has been filled.
     // If it has, sends email to account m190354@usna.edu with feedback provided by the user.
       if(isset($_POST['name'])){
