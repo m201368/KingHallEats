@@ -1,4 +1,10 @@
 <?php
+/*Description: Reads in username and time from GET and updates that sepcific request in requests.txt to show the accepted request.
+  Created by: Chris Daves
+  Created On: 22 NOV 2017
+  Last Edited: 14 DEC 2017
+*/
+//reads all the requests
   function readRequests($fileName)
   {
     $request;
@@ -20,6 +26,7 @@
     //close the file
     return $request;
   }
+//updates requests.txt to reflect changes
   function updateRequests($user,$time,$requests){
     $f = fopen("requests.txt", 'w');
     fclose($f);
@@ -40,9 +47,11 @@
     fclose($file);
   }
   $r = readRequests("requests.txt");
+  //the variables are hardcoded into the URL
   if(isset($_GET["user"])){
     updateRequests($_GET["user"],$_GET["time"],$r);
   }
+//sends webpage back to the original page with an updated requests.txt
   header("location: feed.php");
   // echo"<pre>";
   // print_r($r);
