@@ -141,7 +141,7 @@ function readRequests($fileName){
 </div><!-- /.navbar-collapse -->
 </div><!-- /.container-fluid -->
 </nav>
-    <br>
+    <br><br><br>
     <div class="row">
       <div class="col-md-1"></div>
       <div class="col-md-2 jumbotron">
